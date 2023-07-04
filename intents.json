@@ -1,0 +1,78 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi","Is anyone there?", "Hello", "Hey", "Whats up"],
+         "responses": ["Hi! Thank you for reaching us today. If you have any questions about Smart Nanny and our services, I am happy to help.", "Hello, welcome to Smart Nanny how can we help you today?", "Hi! Great to see you again. How can I assist you today?"],
+         "context_set": ""
+        },
+        {"tag": "age",
+         "patterns": ["How old are you?", "What is your age?"],
+         "responses": ["I am not sure how I should answer this question but I am about a year old."],
+         "context_set": ""
+        },
+        {"tag": "name",
+         "patterns": ["what is your name", "what should I call you", "whats your name?"],
+         "responses": ["My name is Jim the Smart Nanny Chat Bot but you can call me Jim.", " I’m Jim.", " I’m Jim the Smart Nanny Chat Bot"],
+         "context_set": ""
+        },
+        {"tag": "shop",
+         "patterns": ["What services do you offer?", "What does Smart Nanny do?", "What do you do?"],
+         "responses": ["Smart Nanny is a platform that trains and hires independent contractors as househelps and cleaners and helps connect them to find jobs. Our goal is to hire, manage, and provide stable jobs to househelps and provide quality house cleaning and other services to our customers.  "],
+         "context_set": ""
+        },
+        {"tag": "hours",
+         "patterns": ["What time are you open?", "What time do we close?", "When are you guys open?", "What are your hours of operation?"],
+         "responses": ["Smart Nanny is open from 7am to 4pm Monday - Friday but I am available to chat at anytime."],
+         "context_set": ""
+        },
+        {"tag": "owner",
+         "patterns": [" Who is the founder of Smart Nanny?", "Who is your founder?", "Who created you?", "Who is the owner of Smart Nanny?", " Who runs Smart Nanny?"],
+         "responses": ["Smart Nanny was founded by James Muthama a Strathmore University Computer Science Student. If you would love to contact him feel free. You can reach him through jamesmuthaiks@gmail.com.", "I was created by James Muthama a Strathmore University Computer Science Student. If you would love to contact him feel free. You can reach him through jamesmuthaiks@gmail.com."],
+         "context_set": ""
+        },
+        {"tag": "order_1",
+         "patterns": ["I want a househelp", "I want a cleaner", "I want a Nanny", "I want someone to clean my house", "I want someone who can clean my house and wash my clothes", "I want someone who can take care of my house"],
+         "responses": ["To take into account your preference would you like a househelp or nanny who stays at home in your house or one who comes and goes on a daily basis? Take into account one that stays at home in your house will cost more"],
+         "context_set": ""
+        },
+        {"tag": "order_come_and_go",
+         "patterns": ["I want one who comes comes and goes on a daily basis", "I would like one who comes and goes on a daily basis"],
+         "responses": ["Next we’ll have to choose the days you want them to come. The day will vary based on how many times you want them to come in a week. You can choose between two days a week or three days a week. “Two days a week” will mean they come twice a week. “Three days a week” will mean they come thrice a week"],
+         "context_set": ""
+        },
+        {"tag": "order_2day_per_week",
+         "patterns": ["I want a one who comes two days in a week", "I want the two day one", "I want househelp who comes atleast 2 days a week"],
+         "responses": ["Next we’ll have to choose the two days you want them to come."],
+         "context_set": ""
+        },
+        {"tag": "order_3day_per_week",
+         "patterns": ["I want a one who comes three days in a week", "I want the three day one", "I want househelp who comes atleast 3 days a week"],
+         "responses": ["Next we’ll have to choose the three days you want them to come."],
+         "context_set": ""
+        },
+        {"tag": "order_stay_at_home",
+         "patterns": ["I want one who will come live with me", "I would like one who stays at home in my house"],
+         "responses": ["Given you want a stay at home househelp or nanny, you’ll have to provide accommodation for the househelp."],
+         "context_set": ""
+        },
+        {"tag": "yes",
+         "patterns": ["Yes", "Yeah"],
+         "responses": ["Could you kindly give more context on the yes so that I could better understand. For example: Yes, I want a househelp or Yeah, I want a househelp"],
+         "context_set": ""
+        },
+        {"tag": "okay",
+         "patterns": ["Okay", "K", "Ok"],
+         "responses": ["Could you kindly give more context on the okay so that I could better understand. For example: Okay, I want a househelp or Ok, I want a househelp"],
+         "context_set": ""
+        },
+        {"tag": "no",
+         "patterns": ["Nah", "No", "Nop"],
+         "responses": ["Could you kindly give more context on the no so that I could better understand. For example: No, I don't want a househelp or Nah, I don't want a househelp"],
+         "context_set": ""
+        },
+        {"tag": "cancel",
+         "patterns": ["I would like to cancel my order", "I want to cancel my request", "Can I cancel my househelp order?", "Can I cancel my Smart Nanny order?", "Can I cancel my Smart Nanny subscription?"],
+         "responses": ["Ok we will cancel it but could I ask why you would like to cancel your Smart Nanny order or subscription?"],
+         "context_set": ""
+        }
+]
+}
