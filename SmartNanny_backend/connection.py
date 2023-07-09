@@ -13,9 +13,9 @@ client = MongoClient(connection_string)
 
 # Prints out our databases in MongoDB
 dbs = client.list_database_names()
-# print(dbs)
+#print(dbs)
 
 # Prints out our Collections in MongoDB
 collections = client.SmartNanny.list_collection_names()
-# print(collections)
+#print(collections)
 

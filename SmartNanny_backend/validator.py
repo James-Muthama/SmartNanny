@@ -2,7 +2,7 @@ nanny_validator = {
     "$jsonSchema": {
         "bsonType": "object",
         "required": ["name", "id_number", "date_of_birth", "phone_no", "address", "employment_start_date", "Mon", "Tue",
-                     "Wed", "Thur", "Fri", "Sat", "salary", "employment_end_date"],
+                     "Wed", "Thur", "Fri", "Sat", "salary", "payment_number"],
         "properties": {
             "name": {
                 "bsonType": "string",
@@ -15,8 +15,7 @@ nanny_validator = {
             },
             "date_of_birth": {
                 "bsonType": ["string"],
-                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                "description": "Enter Date of Birth in the format YYYY-MM-DD"
+                "description": "Enter Date of Birth in the format DD-MM-YYYY"
             },
             "phone_no": {
                 "bsonType": "int",
@@ -28,8 +27,7 @@ nanny_validator = {
                 "description": "Enter a string for the address"
             },
             "employment_start_date": {
-                "enum": ["string", "null"],
-                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                "bsonType": "date",
                 "description": "Enter a string for the day they started employment"
             },
             "Mon": {
@@ -60,10 +58,9 @@ nanny_validator = {
                 "bsonType": "int",
                 "description": "Enter a int for the amount of money to be paid to this nanny"
             },
-            "employment_end_date": {
-                "enum": ["string", "null"],
-                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                "description": "Enter a string for the day they started employment"
+            "payment_number": {
+                "bsonType": "int",
+                "description": "Enter a number that will be used for m-pesa payment"
             }
         }
     }
