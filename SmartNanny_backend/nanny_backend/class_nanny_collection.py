@@ -1,4 +1,4 @@
-from connection import client
+from SmartNanny_backend.connection import client
 
 
 class NannyCollection:
@@ -24,8 +24,7 @@ class NannyCollection:
             "salary": nanny.salary,
             "payment_number": nanny.payment_number
         }
-        inserted_id = self.collection.insert_one(nanny_data).inserted_id
-        print(inserted_id)
+        self.collection.insert_one(nanny_data)
 
     def delete_nanny(self, _id):
         from bson.objectid import ObjectId
@@ -43,3 +42,8 @@ class NannyCollection:
         }
 
         self.collection.update_one({"_id": _id}, salary_change)
+
+    def connecting_nanny_to_customer(self, dates, _id):
+        for date in dates:
+            date = date[date]
+
