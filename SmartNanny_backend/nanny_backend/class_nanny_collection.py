@@ -44,13 +44,54 @@ class NannyCollection:
         self.collection.update_one({"_id": _id}, salary_change)
 
     def checking_if_nanny_free_on_the_days(self, dates):
+        total_availability = 0
+        number_of_days = len(dates)
+
         for date in dates:
             # Checking if a date is equal to null
             availability = self.collection.find_one({date: {'$ne': "null"}}).count()
 
-            return availability
+            total_availability += availability
+
+        return total_availability, number_of_days
 
     def recommending_days(self, dates):
+        number_of_days = len(dates)
+
+        if number_of_days == 1:
+            query = {
+                '$or': [
+                    {'Mon': "null"},
+                    {'Tue': "null"},
+                    {'Wed': "null"},
+                    {'Thur': "null"},
+                    {'Fri': "null"},
+                    {'Sat': "null"}
+                ]
+            }
+
+            results = self.collection.find_one(query)
+
+            if results:
+                day = next((key for key, value in results.items() if value == "null"), None)
+                if day:
+                    return day
+
+        elif number_of_days == 2:
+            query = {
+                '$or': [
+                    {"$and": [{"Mon": "null"}, {"Thur": "null"}]},
+                    {"$and": [{"Tue": "null"}, {"Fri": "null"}]},
+                    {"$and": [{"Wed": "null"}, {"Sat": "null"}]}
+                ]
+            }
+
+            results = self.collection.find_one(query)
+
+
+
+
+
         date = []
         query = {
             '$or': [
@@ -89,12 +130,3 @@ class NannyCollection:
                     break
 
             print(matching_value)
-
-
-
-
-
-
-
-
-
