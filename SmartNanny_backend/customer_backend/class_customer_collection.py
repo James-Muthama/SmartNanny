@@ -26,7 +26,6 @@ class CustomerCollection:
         document = self.collection.find_one({"_id": _id})
 
         dates = document["days_of_the_week"]
-        print(dates)
 
         return dates
 
