@@ -76,8 +76,11 @@ class NannyCollection:
                 day = next((key for key, value in results.items() if value == "null"), None)
                 if day:
                     return day
+            else:
+                return "No available Nanny's at the moment"
 
         elif number_of_days == 2:
+            date = []
             query = {
                 '$or': [
                     {"$and": [{"Mon": "null"}, {"Thur": "null"}]},
@@ -88,45 +91,41 @@ class NannyCollection:
 
             results = self.collection.find_one(query)
 
+            if results:
+                for clause in query['$or']:
+                    if '$and' in clause:
+                        and_clause = clause['$and']
+                        for field in and_clause:
+                            if results[field] == "null":
+                                date.append(field)
 
+                return date
 
+            else:
+                return "No available Nanny's at the moment"
 
+        elif number_of_days == 3:
+            date = []
+            query = {
+                '$or': [
+                    {"$and": [{"Mon": "null"}, {"Wed": "null"}, {"Fri": "null"}]},
+                    {"$and": [{"Tue": "null"}, {"Thur": "null"}, {"Sat": "null"}]}
+                ]
+            }
 
-        date = []
-        query = {
-            '$or': [
-                {'Mon': "null"},
-                {'Tue': "null"},
-                {'Wed': "null"},
-                {'Thur': "null"},
-                {'Fri': "null"},
-                {'Sat': "null"}
-            ]
-        }
-        for _ in dates:
             results = self.collection.find_one(query)
 
-            # Iterate over the results and extract the specific value
-            matching_value = None
+            if results:
+                for clause in query['$or']:
+                    if '$and' in clause:
+                        and_clause = clause['$and']
+                        for field in and_clause:
+                            if results[field] == "null":
+                                date.append(field)
 
-            for document in results:
-                if 'Mon' in document:
-                    matching_value = document['Mon']
-                    break
-                elif 'Tue' in document:
-                    matching_value = document['Tue']
-                    break
-                elif 'Wed' in document:
-                    matching_value = document['Wed']
-                    break
-                elif 'Thur' in document:
-                    matching_value = document['Thur']
-                    break
-                elif 'Fri' in document:
-                    matching_value = document['Fri']
-                    break
-                elif 'Sat' in document:
-                    matching_value = document['Sat']
-                    break
+                return date
 
-            print(matching_value)
+            else:
+                return "No available Nanny's at the moment"
+
+
