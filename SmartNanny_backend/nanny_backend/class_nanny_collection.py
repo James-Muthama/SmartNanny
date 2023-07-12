@@ -45,7 +45,6 @@ class NannyCollection:
 
     def checking_if_nanny_free_on_the_days(self, dates):
         total_availability = 0
-        number_of_days = len(dates)
 
         for date in dates:
             # Checking if a date is equal to null
@@ -53,7 +52,33 @@ class NannyCollection:
 
             total_availability += availability
 
-        return total_availability, number_of_days
+        return total_availability
+
+    def connecting_customer_to_nanny(self, dates, _id):
+        for date in dates:
+            results = self.collection.find_one({date: "null"})
+
+            if results:
+                nanny_id = results["_id"]
+                nanny_name = results["name"]
+                nanny_number = results["phone_no"]
+
+                update = {
+                    '$set': [
+                        {date: _id}
+                    ]
+                }
+
+                self.collection.update_one(
+                    {_id: nanny_id},
+                    update
+                )
+
+                return nanny_name, nanny_number
+            else:
+                return "No nanny available"
+
+
 
     def recommending_days(self, dates):
         number_of_days = len(dates)
@@ -127,5 +152,3 @@ class NannyCollection:
 
             else:
                 return "No available Nanny's at the moment"
-
-
