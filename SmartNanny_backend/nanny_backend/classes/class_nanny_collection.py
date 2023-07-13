@@ -74,11 +74,9 @@ class NannyCollection:
                     update
                 )
 
-                return nanny_name, nanny_number
+                return nanny_id, nanny_name, nanny_number
             else:
                 return "No nanny available"
-
-
 
     def recommending_days(self, dates):
         number_of_days = len(dates)

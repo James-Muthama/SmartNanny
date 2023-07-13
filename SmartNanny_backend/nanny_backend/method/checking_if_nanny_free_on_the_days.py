@@ -5,6 +5,4 @@ nanny_collection = NannyCollection("SmartNanny", "Nanny")
 
 availability = nanny_collection.checking_if_nanny_free_on_the_days(dates)
 
-print(availability)
-
 
