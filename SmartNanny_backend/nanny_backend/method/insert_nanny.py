@@ -1,5 +1,5 @@
-from SmartNanny_backend.nanny_backend.class_nanny_collection import NannyCollection
-from SmartNanny_backend.nanny_backend.class_nanny import Nanny
+from SmartNanny_backend.nanny_backend.classes.class_nanny_collection import NannyCollection
+from SmartNanny_backend.nanny_backend.classes.class_nanny import Nanny
 import datetime
 
 nanny_collection = NannyCollection("SmartNanny", "Nanny")
