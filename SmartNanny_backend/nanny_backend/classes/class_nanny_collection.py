@@ -48,7 +48,7 @@ class NannyCollection:
 
         for date in dates:
             # Checking if a date is equal to null
-            availability = self.collection.find_one({date: {'$ne': "null"}}).count()
+            availability = self.collection.find({date: {'$ne': "null"}}).count()
 
             total_availability += availability
 

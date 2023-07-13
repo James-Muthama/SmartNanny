@@ -18,7 +18,5 @@ new_customer = Customer(
 
 customer_id = customer_collection.insert_customer(new_customer)
 
-dates = customer_collection.getting_dates(customer_id)
-
 
 
