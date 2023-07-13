@@ -52,7 +52,7 @@ class NannyCollection:
 
             total_availability += availability
 
-        return total_availability
+        return total_availability, dates
 
     def connecting_customer_to_nanny(self, dates, _id):
         for date in dates:
@@ -75,8 +75,6 @@ class NannyCollection:
                 )
 
                 return nanny_id, nanny_name, nanny_number
-            else:
-                return "No nanny available"
 
     def recommending_days(self, dates):
         number_of_days = len(dates)
