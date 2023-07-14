@@ -31,27 +31,45 @@ nanny_validator = {
                 "description": "Enter a string for the day they started employment"
             },
             "Mon": {
-                "enum": ["null", "objectId"],
+                "anyOf": [
+                    {"bsonType": "null"},
+                    {"bsonType": "objectId"},
+                ],
                 "description": "This is the customer_id they are meant to work for on Monday"
             },
             "Tue": {
-                "enum": ["null", "objectId"],
+                "anyOf": [
+                    {"bsonType": "null"},
+                    {"bsonType": "objectId"},
+                ],
                 "description": "This is the customer_id they are meant to work for on Tuesday"
             },
             "Wed": {
-                "enum": ["null", "objectId"],
+                "anyOf": [
+                    {"bsonType": "null"},
+                    {"bsonType": "objectId"},
+                ],
                 "description": "This is the customer_id they are meant to work for on Wednesday"
             },
             "Thur": {
-                "enum": ["null", "objectId"],
+                "anyOf": [
+                    {"bsonType": "null"},
+                    {"bsonType": "objectId"},
+                ],
                 "description": "This is the customer_id they are meant to work for on Thursday"
             },
             "Fri": {
-                "enum": ["null", "objectId"],
+                "anyOf": [
+                    {"bsonType": "null"},
+                    {"bsonType": "objectId"},
+                ],
                 "description": "This is the customer_id they are meant to work for on Friday"
             },
             "Sat": {
-                "enum": ["null", "objectId"],
+                "anyOf": [
+                    {"bsonType": "null"},
+                    {"bsonType": "objectId"},
+                ],
                 "description": "This is the customer_id they are meant to work for on Saturday"
             },
             "salary": {

@@ -55,6 +55,8 @@ class NannyCollection:
         return total_availability, dates
 
     def connecting_customer_to_nanny(self, dates, _id):
+        from bson.objectid import ObjectId
+        _id = ObjectId(_id)
         for date in dates:
             results = self.collection.find_one({date: "null"})
 
