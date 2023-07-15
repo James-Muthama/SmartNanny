@@ -54,13 +54,15 @@ class NannyCollection:
 
         return total_availability
 
-    def getting_available_nanny(self, dates):
+    def getting_nanny_details(self, dates):
         for date in dates:
             results = self.collection.find_one({date: "null"})
 
-            return results['_id'], results['name'], results['phone_no']
+            nanny_id, nanny_name, nanny_phone_number = results['_id'], results['name'], results['phone_no']
 
-    def connecting_customer_to_nanny(self, nanny_id, dates, _id):
+            return nanny_id, nanny_name, nanny_phone_number, dates
+
+    def connecting_nanny_to_employee(self, dates, _id, nanny_id):
         from bson import ObjectId
         _id = ObjectId(_id)
 
