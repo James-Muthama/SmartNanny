@@ -34,6 +34,7 @@ nanny_validator = {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
+                    {"bsonType": "string"}
                 ],
                 "description": "This is the customer_id they are meant to work for on Monday"
             },
@@ -41,6 +42,7 @@ nanny_validator = {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
+                    {"bsonType": "string"}
                 ],
                 "description": "This is the customer_id they are meant to work for on Tuesday"
             },
@@ -48,6 +50,7 @@ nanny_validator = {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
+                    {"bsonType": "string"}
                 ],
                 "description": "This is the customer_id they are meant to work for on Wednesday"
             },
@@ -55,6 +58,7 @@ nanny_validator = {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
+                    {"bsonType": "string"}
                 ],
                 "description": "This is the customer_id they are meant to work for on Thursday"
             },
@@ -62,6 +66,7 @@ nanny_validator = {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
+                    {"bsonType": "string"}
                 ],
                 "description": "This is the customer_id they are meant to work for on Friday"
             },
@@ -69,6 +74,7 @@ nanny_validator = {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
+                    {"bsonType": "string"}
                 ],
                 "description": "This is the customer_id they are meant to work for on Saturday"
             },

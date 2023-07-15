@@ -52,31 +52,27 @@ class NannyCollection:
 
             total_availability += availability
 
-        return total_availability, dates
+        return total_availability
 
-    def connecting_customer_to_nanny(self, dates, _id):
-        from bson.objectid import ObjectId
-        _id = ObjectId(_id)
+    def getting_available_nanny(self, dates):
         for date in dates:
             results = self.collection.find_one({date: "null"})
 
-            if results:
-                nanny_id = results["_id"]
-                nanny_name = results["name"]
-                nanny_number = results["phone_no"]
+            return results['_id'], results['name'], results['phone_no']
 
-                update = {
-                    '$set': [
-                        {date: _id}
-                    ]
+    def connecting_customer_to_nanny(self, nanny_id, dates, _id):
+        from bson import ObjectId
+        _id = ObjectId(_id)
+
+        for date in dates:
+            self.collection.update_one(
+                {"_id": nanny_id},
+                {"$set":
+                    {
+                        date: _id
+                    }
                 }
-
-                self.collection.update_one(
-                    {_id: nanny_id},
-                    update
-                )
-
-                return nanny_id, nanny_name, nanny_number
+            )
 
     def recommending_days(self, dates):
         number_of_days = len(dates)
