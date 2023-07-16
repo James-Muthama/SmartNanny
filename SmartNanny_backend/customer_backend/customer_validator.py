@@ -30,7 +30,11 @@ customer_validator = {
                 "description": "This is the days they want a nanny to come"
             },
             "nanny_id": {
-                "enum": ["null", "objectId"],
+                "anyOf": [
+                    {"bsonType": "null"},
+                    {"bsonType": "objectId"},
+                    {"bsonType": "string"}
+                ],
                 "description": "This the nanny connected to the customer"
             },
             "discount_id": {

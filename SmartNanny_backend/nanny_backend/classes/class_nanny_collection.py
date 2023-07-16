@@ -62,7 +62,7 @@ class NannyCollection:
 
             return nanny_id, nanny_name, nanny_phone_number, dates
 
-    def connecting_nanny_to_employee(self, dates, _id, nanny_id):
+    def connecting_customer_to_nanny(self, dates, _id, nanny_id):
         from bson import ObjectId
         _id = ObjectId(_id)
 

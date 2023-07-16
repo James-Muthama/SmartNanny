@@ -29,5 +29,14 @@ class CustomerCollection:
 
         return dates
 
+    def connecting_nanny_to_customer(self, customer_id, nanny_id):
+        from bson import ObjectId
+        _id = ObjectId(nanny_id)
 
-    
+        self.collection.update_one(
+            {"_id": nanny_id},
+            {"$set":
+                {
+                    "nanny_id": _id
+                }
+            })
