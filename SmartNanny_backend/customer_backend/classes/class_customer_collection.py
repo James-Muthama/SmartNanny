@@ -31,6 +31,9 @@ class CustomerCollection:
         return 1
 
     def deleting_nanny_from_customer_collection(self, _id):
+        from bson.objectid import ObjectId
+        _id = ObjectId(_id)
+
         query = {
             '$or': [
                 {'Mon': _id},
@@ -46,8 +49,9 @@ class CustomerCollection:
         matched_field = None
 
         for condition in query['$or']:
-            if condition in results:
-                matched_field = list(condition.keys())[0]
+            field_name = list(condition.keys())[0]
+            if field_name in results:
+                matched_field = field_name
                 break
 
         results.update(
