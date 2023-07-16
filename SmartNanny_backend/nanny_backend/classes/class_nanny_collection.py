@@ -31,6 +31,16 @@ class NannyCollection:
         _id = ObjectId(_id)
         self.collection.delete_one({"_id": _id})
 
+    def deleting_nanny_from_customer_collection(self, _id):
+        self.collection.update(
+            {"nanny_id": _id},
+            {"$set":
+                {
+                    "nanny_id": "null"
+                }
+             }
+        )
+
     def salary_increment(self, _id, salary_increment):
         from bson.objectid import ObjectId
         _id = ObjectId(_id)
@@ -44,15 +54,15 @@ class NannyCollection:
         self.collection.update_one({"_id": _id}, salary_change)
 
     def checking_if_nanny_free_on_the_days(self, dates):
-        total_availability = 0
+        available_nannies = 0
 
         for date in dates:
             # Checking if a date is equal to null
-            availability = self.collection.find({date: {'$ne': "null"}}).count()
+            availability = self.collection.find({date: "null"}).count()
 
-            total_availability += availability
+            available_nannies += availability
 
-        return total_availability
+        return available_nannies
 
     def getting_nanny_details(self, dates):
         for date in dates:
@@ -96,9 +106,9 @@ class NannyCollection:
             if results:
                 day = next((key for key, value in results.items() if value == "null"), None)
                 if day:
-                    return day
+                    print(day)
             else:
-                return "No available Nanny's at the moment"
+                print("No available Nanny's at the moment")
 
         elif number_of_days == 2:
             date = []
@@ -120,10 +130,10 @@ class NannyCollection:
                             if results[field] == "null":
                                 date.append(field)
 
-                return date
+                print(date)
 
             else:
-                return "No available Nanny's at the moment"
+                print("No available Nanny's at the moment")
 
         elif number_of_days == 3:
             date = []
@@ -144,7 +154,7 @@ class NannyCollection:
                             if results[field] == "null":
                                 date.append(field)
 
-                return date
+                print(date)
 
             else:
-                return "No available Nanny's at the moment"
+                print("No available Nanny's at the moment")

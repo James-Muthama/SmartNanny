@@ -22,6 +22,42 @@ class CustomerCollection:
         inserted_id = self.collection.insert_one(customer_data).inserted_id
         return inserted_id
 
+    def delete_customer(self, _id):
+        from bson.objectid import ObjectId
+        _id = ObjectId(_id)
+
+        self.collection.delete_one({"_id": _id})
+
+        return 1
+
+    def deleting_nanny_from_customer_collection(self, _id):
+        query = {
+            '$or': [
+                {'Mon': _id},
+                {'Tue': _id},
+                {'Wed': _id},
+                {'Thur': _id},
+                {'Fri': _id},
+                {'Sat': _id}
+            ]
+        }
+        results = self.collection.find_one(query)
+
+        matched_field = None
+
+        for condition in query['$or']:
+            if condition in results:
+                matched_field = list(condition.keys())[0]
+                break
+
+        results.update(
+            {"$set":
+                {
+                    matched_field: "null"
+                }
+             }
+        )
+
     def getting_dates(self, _id):
         document = self.collection.find_one({"_id": _id})
 
@@ -34,9 +70,10 @@ class CustomerCollection:
         _id = ObjectId(nanny_id)
 
         self.collection.update_one(
-            {"_id": nanny_id},
+            {"_id": customer_id},
             {"$set":
                 {
                     "nanny_id": _id
                 }
-            })
+            }
+        )
