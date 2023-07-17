@@ -31,15 +31,29 @@ class NannyCollection:
         _id = ObjectId(_id)
         self.collection.delete_one({"_id": _id})
 
-    def deleting_nanny_from_customer_collection(self, _id):
-        self.collection.update(
-            {"nanny_id": _id},
-            {"$set":
-                {
-                    "nanny_id": "null"
-                }
-             }
-        )
+    def deleting_customer_from_nanny_collection(self, _id, days):
+        from bson.objectid import ObjectId
+        _id = ObjectId(_id)
+
+        for day in days:
+            query = {
+                '$and': [
+                    {day: _id}
+                ]
+            }
+            results = self.collection.find_one(query)
+
+            if results:
+                day = next((key for key, value in results.items() if value == _id), None)
+
+                self.collection.update(
+                    {day: _id},
+                    {"$set":
+                        {
+                            day: "null"
+                        }
+                    }
+                )
 
     def salary_increment(self, _id, salary_increment):
         from bson.objectid import ObjectId
@@ -106,7 +120,7 @@ class NannyCollection:
             if results:
                 day = next((key for key, value in results.items() if value == "null"), None)
                 if day:
-                    print(day)
+                    return day
             else:
                 print("No available Nanny's at the moment")
 
@@ -127,13 +141,14 @@ class NannyCollection:
                     if '$and' in clause:
                         and_clause = clause['$and']
                         for field in and_clause:
-                            if results[field] == "null":
-                                date.append(field)
-
-                print(date)
-
+                            days = field.items()
+                            for field_name, value in days:
+                                if results[field_name] == value:
+                                    date.append(field_name)
             else:
                 print("No available Nanny's at the moment")
+
+            print(date)
 
         elif number_of_days == 3:
             date = []
@@ -151,10 +166,14 @@ class NannyCollection:
                     if '$and' in clause:
                         and_clause = clause['$and']
                         for field in and_clause:
-                            if results[field] == "null":
-                                date.append(field)
+                            days = field.items()
+                            for field_name, value in days:
+                                if results[field_name] == value:
+                                    date.append(field_name)
 
                 print(date)
 
             else:
                 print("No available Nanny's at the moment")
+
+            print(date)

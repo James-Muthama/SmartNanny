@@ -26,38 +26,23 @@ class CustomerCollection:
         from bson.objectid import ObjectId
         _id = ObjectId(_id)
 
+        results = self.collection.find_one({"_id": _id})
+
+        days = results["days_of_the_week"]
+
         self.collection.delete_one({"_id": _id})
 
-        return 1
+        return days
 
     def deleting_nanny_from_customer_collection(self, _id):
         from bson.objectid import ObjectId
         _id = ObjectId(_id)
 
-        query = {
-            '$or': [
-                {'Mon': _id},
-                {'Tue': _id},
-                {'Wed': _id},
-                {'Thur': _id},
-                {'Fri': _id},
-                {'Sat': _id}
-            ]
-        }
-        results = self.collection.find_one(query)
-
-        matched_field = None
-
-        for condition in query['$or']:
-            field_name = list(condition.keys())[0]
-            if field_name in results:
-                matched_field = field_name
-                break
-
-        results.update(
+        self.collection.update(
+            {"nanny_id": _id},
             {"$set":
                 {
-                    matched_field: "null"
+                    "nanny_id": "null"
                 }
              }
         )

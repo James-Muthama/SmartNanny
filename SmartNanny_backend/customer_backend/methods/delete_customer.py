@@ -1,9 +1,9 @@
 from SmartNanny_backend.customer_backend.classes.class_customer_collection import CustomerCollection
+from SmartNanny_backend.nanny_backend.classes.class_nanny_collection import NannyCollection
 
-nanny_collection = CustomerCollection("SmartNanny", "Nanny")
-
+nanny_collection = NannyCollection("SmartNanny", "Nanny")
 customer_collection = CustomerCollection("SmartNanny", "Customer")
 customer_id = input("Id: ")
 
-customer_collection.delete_customer(customer_id)
-nanny_collection.deleting_nanny_from_customer_collection(customer_id)
+days = customer_collection.delete_customer(customer_id)
+nanny_collection.deleting_customer_from_nanny_collection(customer_id, days)
