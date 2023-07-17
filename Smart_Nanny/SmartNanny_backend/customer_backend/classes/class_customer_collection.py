@@ -1,4 +1,4 @@
-from SmartNanny_backend.connection import client
+from Smart_Nanny.SmartNanny_backend.connection import client
 
 
 class CustomerCollection:

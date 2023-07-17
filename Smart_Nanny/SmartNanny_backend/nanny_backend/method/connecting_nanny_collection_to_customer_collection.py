@@ -1,7 +1,7 @@
-from SmartNanny_backend.customer_backend.methods.getting_dates import dates
-from SmartNanny_backend.nanny_backend.classes.class_nanny_collection import NannyCollection
-from SmartNanny_backend.customer_backend.methods.insert_customer import customer_id
-from SmartNanny_backend.customer_backend.classes.class_customer_collection import CustomerCollection
+from Smart_Nanny.SmartNanny_backend.customer_backend.methods.getting_dates import dates
+from Smart_Nanny.SmartNanny_backend.nanny_backend.classes.class_nanny_collection import NannyCollection
+from Smart_Nanny.SmartNanny_backend.customer_backend.methods.insert_customer import customer_id
+from Smart_Nanny.SmartNanny_backend.customer_backend.classes.class_customer_collection import CustomerCollection
 
 
 nanny_collection = NannyCollection("SmartNanny", "Nanny")
