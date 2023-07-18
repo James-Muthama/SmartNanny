@@ -97,7 +97,7 @@ class NannyCollection:
                     {
                         date: _id
                     }
-                }
+                 }
             )
 
     def recommending_days(self, dates):
