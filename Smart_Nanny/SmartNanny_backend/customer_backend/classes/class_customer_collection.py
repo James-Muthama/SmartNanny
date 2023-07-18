@@ -64,5 +64,5 @@ class CustomerCollection:
                 {
                     "nanny_id": _id
                 }
-            }
+             }
         )
