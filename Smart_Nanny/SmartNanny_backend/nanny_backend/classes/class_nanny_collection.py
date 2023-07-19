@@ -96,7 +96,7 @@ class NannyCollection:
                 {"$set":
                     {
                         date: _id
-                     }
+                    }
                  }
             )
 
