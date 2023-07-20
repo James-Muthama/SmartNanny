@@ -52,7 +52,7 @@ class NannyCollection:
                         {
                             day: "null"
                         }
-                    }
+                     }
                 )
 
     def salary_increment(self, _id, salary_increment):
