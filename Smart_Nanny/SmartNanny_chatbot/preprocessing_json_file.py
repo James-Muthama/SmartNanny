@@ -5,10 +5,7 @@ from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 
 import numpy as np
-import tflearn
-import tensorflow
 import pickle
-import random
 import json
 
 # opening the intents.json file
@@ -91,81 +88,3 @@ except:
 
     with open("data.pickle", "wb") as f:
         pickle.dump((words, labels, training, output), f)
-
-# resets the tensorflow graph to get rid of previous settings
-tensorflow.compat.v1.reset_default_graph()
-
-# tflearn.input_data() specifics the input data of the model
-net = tflearn.input_data(shape=[None, len(training[0])])
-# creates a dense neural network with 8 neurons
-net = tflearn.fully_connected(net, 8)
-net = tflearn.fully_connected(net, 8)
-# creates an output layer with neurons equal to the number of tags, also uses a softmax as the activation function
-net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
-net = tflearn.regression(net)
-
-# creating the Dense Neural Network and equates it to model
-model = tflearn.DNN(net)
-
-# tries to load the model if it is not available we will need to train it
-try:
-    model.load("SmartNannyBot.tflearn")
-
-except:
-    # fitting the neural network with the training data, output, number of epochs, batch size and where it will show
-    # metrics such as accuracy etc
-    model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-
-    # saving the model as SmartNannyBot.tflearn
-    model.save("SmartNannyBot.tflearn")
-
-
-# create a function that takes in input from a user converts it into a numpy array to feed into the model
-def bag_of_words(s, words):
-    # creates the bag of words
-    bag = [0 for _ in range(len(words))]
-
-    # tokenizes every word inputted by the user and stems them
-    s_words = nltk.word_tokenize(s)
-    s_words = [stemmer.stem(word.lower()) for word in s_words]
-
-    # fills the bag of words with 1 if a stemmed word matches a word from the words list
-    for se in s_words:
-        for i, w in enumerate(words):
-            if w == se:
-                bag[i] = 1
-
-    # returns a numpy array to be passed in the model
-    return np.array(bag)
-
-
-# prompts user for prompt to be used in the chatbot
-def chat():
-    print("Start talking with the bot (type quit to stop)!")
-    while True:
-        inp = input("You:")
-        if inp.lower() == "quit":
-            break
-
-        # takes in input from user passes it into the function bag_of_words
-        results = model.predict([bag_of_words(inp, words)])[0]
-
-        # takes back the prediction with the highest probability
-        results_index = np.argmax(results)
-
-        # finds the tag with matching probability
-        tag = labels[results_index]
-
-        # only allows prediction with a 70% chance to be passed to the user any less passes an alternate response 
-        if results[results_index] > 0.7:
-            for tg in data["intents"]:
-                if tg["tag"] == tag:
-                    responses = tg["responses"]
-
-                    print(random.choice(responses))
-        else:
-            print("I'm not sure I understood fully what you meant by that. Please ask me something else or is there "
-                  "something else I could help you with?")
-
-
-chat()
