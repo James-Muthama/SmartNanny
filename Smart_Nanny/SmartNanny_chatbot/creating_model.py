@@ -1,11 +1,10 @@
-from nltk.stem.lancaster import LancasterStemmer
-
-stemmer = LancasterStemmer()
-
-from preprocessing_json_file import training
-from preprocessing_json_file import output
 import tflearn
 import tensorflow
+from nltk.stem.lancaster import LancasterStemmer
+from preprocessing_json_file import training
+from preprocessing_json_file import output
+
+stemmer = LancasterStemmer()
 
 # resets the tensorflow graph to get rid of previous settings
 tensorflow.compat.v1.reset_default_graph()

@@ -1,10 +1,9 @@
 import nltk
+import numpy as np
 
 from nltk.stem.lancaster import LancasterStemmer
 
 stemmer = LancasterStemmer()
-
-import numpy as np
 
 
 # create a function that takes in input from a user converts it into a numpy array to feed into the model

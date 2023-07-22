@@ -1,12 +1,11 @@
 import nltk
+import numpy as np
+import pickle
+import json
 
 from nltk.stem.lancaster import LancasterStemmer
 
 stemmer = LancasterStemmer()
-
-import numpy as np
-import pickle
-import json
 
 # opening the intents.json file
 with open("intents.json", encoding="utf8") as file:
