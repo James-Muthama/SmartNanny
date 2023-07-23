@@ -23,3 +23,4 @@ def bag_of_words(s, words):
 
     # returns a numpy array to be passed in the model
     return np.array(bag)
+
