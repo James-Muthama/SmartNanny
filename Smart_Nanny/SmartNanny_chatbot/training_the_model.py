@@ -5,7 +5,6 @@ from preprocessing_json_file import output
 # tries to load the model if it is not available we will need to train it
 try:
     model.load("SmartNannyBot.tflearn")
-
 except:
     # fitting the neural network with the training data, output, number of epochs, batch size and where it will show
     # metrics such as accuracy etc
