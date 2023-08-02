@@ -3,7 +3,7 @@ import time
 
 driver = webdriver.Chrome()
 
-driver.get("https://web.whatsapp.com")
+driver.get("https://web.whatsapp.com/")
 print(driver.title)
 
 
