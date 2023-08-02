@@ -9,7 +9,7 @@ def finding_unread_message():
 
         unread_message = unread_message.text
 
-        return unread_message
+        return int(unread_message)
 
     except:
         driver.close()
