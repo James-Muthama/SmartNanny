@@ -12,7 +12,7 @@ def reading_latest_text(driver):
         if all_texts:
             latest_text = all_texts[-1]
 
-            return latest_text
+            return latest_text.text
 
     except:
         print("Cannot find texts")
