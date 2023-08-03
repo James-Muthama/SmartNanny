@@ -12,4 +12,5 @@ unread_message = finding_unread_message(driver)
 
 opening_unread_chat(unread_message, driver)
 
+reading_latest_text(driver)
 
