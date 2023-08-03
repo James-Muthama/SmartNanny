@@ -13,5 +13,6 @@ def reading_latest_text(driver):
             latest_text = all_texts[-1]
 
             return latest_text
+
     except:
         print("Cannot find texts")
