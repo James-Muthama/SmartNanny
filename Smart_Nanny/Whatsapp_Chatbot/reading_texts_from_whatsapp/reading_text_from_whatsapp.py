@@ -8,7 +8,7 @@ import time
 def reading_text_from_whatsapp():
     driver.get("https://web.whatsapp.com")
 
-    time.sleep(10)
+    time.sleep(100)
 
     unread_message = finding_unread_message(driver)
 
@@ -17,3 +17,7 @@ def reading_text_from_whatsapp():
     text = reading_latest_text(driver)
 
     return text
+
+
+text = reading_text_from_whatsapp()
+print(text)
