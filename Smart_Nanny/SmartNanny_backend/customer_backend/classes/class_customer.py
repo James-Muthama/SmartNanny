@@ -1,3 +1,4 @@
+# declaring class customer and what attributes it takes in
 class Customer:
     def __init__(self, name, phone_no, address, subscription_start_date, days_in_a_week, days_of_the_week, nanny_id,
                  discount_id, payment_amount):
