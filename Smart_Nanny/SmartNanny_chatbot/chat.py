@@ -32,7 +32,6 @@ def chat():
             for tg in data["intents"]:
                 if tg["tag"] == tag:
                     responses = tg["responses"]
-
                     print(random.choice(responses))
         else:
             print("I'm not sure I understood fully what you meant by that. Please ask me something else or is there "
