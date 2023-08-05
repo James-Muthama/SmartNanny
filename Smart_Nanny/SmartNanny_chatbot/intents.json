@@ -1,22 +1,22 @@
 {"intents": [
         {"tag": "greeting",
-         "patterns": ["Hi","Is anyone there?", "Hello", "Hey", "Whats up"],
-         "responses": ["Hi! Thank you for reaching us today. If you have any questions about Smart Nanny and our services, I am happy to help.", "Hello, welcome to Smart Nanny how can we help you today?", "Hi! Great to see you again. How can I assist you today?"],
+         "patterns": ["Hey", "Hi", "Hello", "Hae", "Helo"],
+         "responses": ["Hi! Thank you for reaching us today. If you have any questions about Smart Nanny and our services, I am happy to help.", "Hello, welcome to Smart Nanny how can we help you today?", "Hi! How can I assist you today?"],
          "context_set": ""
         },
         {"tag": "age",
-         "patterns": ["How old are you?", "What is your age?"],
+         "patterns": ["How old are you?", "What is your age?", "When were you created?"],
          "responses": ["I am not sure how I should answer this question but I am about a year old."],
          "context_set": ""
         },
         {"tag": "name",
          "patterns": ["what is your name", "what should I call you", "whats your name?"],
-         "responses": ["My name is Jim the Smart Nanny Chat Bot but you can call me Jim.", " I’m Jim.", " I’m Jim the Smart Nanny Chat Bot"],
+         "responses": ["My name is Jim the Smart Nanny Chat Bot but you can call me Jim.", " I’m Jim the Smart Nanny Chat Bot"],
          "context_set": ""
         },
         {"tag": "shop",
          "patterns": ["What services do you offer?", "What does Smart Nanny do?", "What do you do?"],
-         "responses": ["Smart Nanny is a platform that trains and hires independent contractors as househelps and cleaners and helps connect them to find jobs. Our goal is to hire, manage, and provide stable jobs to househelps and provide quality house cleaning and other services to our customers.  "],
+         "responses": ["Smart Nanny is a platform that trains and hires househelps and cleaners and helps connect them to find jobs. Our goal is to hire, manage, and provide stable jobs to househelps and provide quality house cleaning services to our customers at an affordable cost."],
          "context_set": ""
         },
         {"tag": "hours",
@@ -24,44 +24,89 @@
          "responses": ["Smart Nanny is open from 7am to 4pm Monday - Friday but I am available to chat at anytime."],
          "context_set": ""
         },
+        {"tag": "charges",
+         "patterns": ["What are your rates?", "How much do you charge for a househelp?", "How much do you charge for a nanny", "What are your rates for househelps or nannies?", "How much are your rates?", "How much do I have to pay for a nanny or househelp?"],
+         "responses": ["We charge from Ksh 1000 - 1200 a day, depending on how big your house is.", "Our rates are in the ball-park of Ksh 1000 - 1200 a day."],
+         "context_set": ""
+        },
+        {"tag": "bargain",
+         "patterns": ["Could you go lower than that?", "Do you offer any cheaper services?", "Do you’re rates go any lower than that?", "I cannot afford that can you go any cheaper than that?", "Can I getter a cheaper deal than that?"],
+         "responses": ["Sorry but unfortunately our rates are fixed. This is to allow our employees to have a stable income while providing quality services."],
+         "context_set": ""
+        },
         {"tag": "owner",
          "patterns": [" Who is the founder of Smart Nanny?", "Who is your founder?", "Who created you?", "Who is the owner of Smart Nanny?", " Who runs Smart Nanny?"],
          "responses": ["Smart Nanny was founded by James Muthama a Strathmore University Computer Science Student. If you would love to contact him feel free. You can reach him through jamesmuthaiks@gmail.com.", "I was created by James Muthama a Strathmore University Computer Science Student. If you would love to contact him feel free. You can reach him through jamesmuthaiks@gmail.com."],
          "context_set": ""
         },
-        {"tag": "order_1",
-         "patterns": ["I want a househelp", "I want a cleaner", "I want a Nanny", "I want someone to clean my house", "I want someone who can clean my house and wash my clothes", "I want someone who can take care of my house"],
-         "responses": ["To take into account your preference would you like a househelp or nanny who stays at home in your house or one who comes and goes on a daily basis? Take into account one that stays at home in your house will cost more"],
+        {"tag": "ordering",
+         "patterns": ["I want a househelp.", "I want to ask for a househelp", "I want a cleaner", "I want a Nanny", "I want someone to clean my house", "I want someone who can clean my house and wash my clothes", "I want someone who can take care of my house", "I was looking for a househelp"],
+         "responses": ["Ok, we can gladly help you with that and connect you to one of our trained and qualified househelps. At the moment we are only offering househelps that come and go on a day to day basis and not a stay at home househelp. We’ll soon be looking to expand our services to offering stay at home househelps. Would you like a come and go househelp?"],
+         "context_set": ""
+        },
+        {"tag": "questioning_househelp",
+         "patterns": ["What is a stay at home househelp?", "What is the difference of a stay at home and a come and go on a daily basis househelp?", "What is a come and go on a daily basis househelp?", "What is a househelp that comes and goes on a daily basis?"],
+         "responses": ["A come and go househelp is a househelp that will come and carry out their cleaning services on your house and not live with you i.e they can come on specified days like Monday and Thursday to clean. While a stay at home househelp is a househelp that essentially lives with you and your family and is in charge of cleaning services at your house."],
          "context_set": ""
         },
         {"tag": "order_come_and_go",
-         "patterns": ["I want one who comes comes and goes on a daily basis", "I would like one who comes and goes on a daily basis"],
-         "responses": ["Next we’ll have to choose the days you want them to come. The day will vary based on how many times you want them to come in a week. You can choose between two days a week or three days a week. “Two days a week” will mean they come twice a week. “Three days a week” will mean they come thrice a week"],
+         "patterns": ["I want one who comes comes and goes on a daily basis", "I would like one who comes and goes on a daily basis", "I want a come and go househelp"],
+         "responses": ["Since you want a come and go househelp you’ll next have to choose the number of days in a week you want them to come. We offer a once a week plan, 2 days a week plan and 3 days a week plan. Which one would you prefer?"],
          "context_set": ""
         },
-        {"tag": "order_2day_per_week",
-         "patterns": ["I want a one who comes two days in a week", "I want the two day one", "I want househelp who comes atleast 2 days a week"],
-         "responses": ["Next we’ll have to choose the two days you want them to come."],
+        {"tag": "once_a_week_plan",
+         "patterns": ["I want the once a week plan", "I would like the once in a week plan", "Could I have the once in a week plan.", "I want a househelp who comes once a week"],
+         "responses": ["Since you’ve selected the once in a week plan, next we’ll have to choose the day in the week you would want a smart nanny to come over"],
+         "context_set": ""
+        },
+        {"tag": "questioning_once_a_week",
+         "patterns": ["How much is the once a week plan?", "How much will it be to have a househelp who comes once a week?"],
+         "responses": ["Given our rate of about Ksh 1000 - 1200 a day, it will cost you about Ksh 4000 a month for the once a week plan."],
+         "context_set": ""
+        },
+        {"tag": "order_2day_a_week",
+         "patterns": ["I want a one who comes two days in a week", "I want the two day one", "I want househelp who comes atleast 2 days a week", "I want the 2 days a week plan"],
+         "responses": ["Since you’ve selected the 2 days a week plan, next we’ll have to choose the two days in the week you would want a smart nanny to come over."],
+         "context_set": ""
+        },
+        {"tag": "questioning_2day_a_week",
+         "patterns": ["How much is the 2 days a week plan?", "How much will it be to have a househelp who comes twice a week?"],
+         "responses": ["Given our rate of about Ksh 1000 - 1200, it will cost you about Ksh 8000 a month for the 2 days a week plan."],
          "context_set": ""
         },
         {"tag": "order_3day_per_week",
-         "patterns": ["I want a one who comes three days in a week", "I want the three day one", "I want househelp who comes atleast 3 days a week"],
-         "responses": ["Next we’ll have to choose the three days you want them to come."],
+         "patterns": ["I want a one who comes three days in a week", "I want the three day one", "I want househelp who comes atleast 3 days a week", "I want the 3 days a week plan"],
+         "responses": ["Since you’ve selected the 3 days a week plan, next we’ll have to choose the three days in the week you would want a smart nanny to come over"],
+         "context_set": ""
+        },
+        {"tag": "questioning_3day_a_week",
+         "patterns": ["How much is the 3 days a week plan?", "How much will it be to have a househelp who comes thrice a week?"],
+         "responses": ["Given our rate of about Ksh 1000 - 1200, it will cost you about Ksh 12000 a month for the 3 days a week plan."],
+         "context_set": ""
+        },
+        {"tag": "plans",
+         "patterns": ["What other plans do you offer?", "What plans do you offer?", "Could you explain to me your plans?", "What is the 2 days a week plan?", "What is the 3 days a week plan?", "What is the once a week plan?", "Explain to me the 2 days a week plan?", "Explain to me the once a week plan?", "Explain to me the 3 days a week plan?", "Explain to me your plans"],
+         "responses": ["We offer 3 tpes of plans at Smart Nanny; a once a week plan, 2 days a week plan and a 3 days a week plan. For the once a week plan, we'll have a smart nanny come to your place every once a week on a day of your choosing. Similarly, the 2 days a week and the 3 days a week plan will have a smart nanny come to your place two and three times a week respectively on days of your choosing."],
          "context_set": ""
         },
         {"tag": "order_stay_at_home",
-         "patterns": ["I want one who will come live with me", "I would like one who stays at home in my house"],
-         "responses": ["Given you want a stay at home househelp or nanny, you’ll have to provide accommodation for the househelp."],
+         "patterns": ["I want one who will come live with me", "I would like one who stays at home in my house", "I want a stay at home househelp"],
+         "responses": ["Unfortunately, at the moment we curently don’t offer that service. However, we are looking to broaden our range of service in the near future. Thank you for understanding.Unfortunately, at the moment we curently don’t offer that service. However, we are looking to broaden our range of service in the near future. Thank you for understanding."],
+         "context_set": ""
+        },
+        {"tag": "thank_you",
+         "patterns": ["Thank you", "Asanti sana", "Thank you very much"],
+         "responses": ["You are welcome. Feel free to reach us again at any moment"],
          "context_set": ""
         },
         {"tag": "yes",
          "patterns": ["Yes", "Yeah"],
-         "responses": ["Could you kindly give more context on the yes so that I could better understand. For example: Yes, I want a househelp or Yeah, I want a househelp"],
+         "responses": ["Could you kindly give more context on the yes so that I could better understand. For example: Yes, I want a come and go househelp"],
          "context_set": ""
         },
         {"tag": "okay",
          "patterns": ["Okay", "K", "Ok"],
-         "responses": ["Could you kindly give more context on the okay so that I could better understand. For example: Okay, I want a househelp or Ok, I want a househelp"],
+         "responses": ["Yeah"],
          "context_set": ""
         },
         {"tag": "no",
@@ -70,8 +115,8 @@
          "context_set": ""
         },
         {"tag": "cancel",
-         "patterns": ["I would like to cancel my order", "I want to cancel my request", "Can I cancel my househelp order?", "Can I cancel my Smart Nanny order?", "Can I cancel my Smart Nanny subscription?"],
-         "responses": ["Ok we will cancel it but could I ask why you would like to cancel your Smart Nanny order or subscription?"],
+         "patterns": ["I would like to cancel my order", "I want to cancel my request", "Can I cancel my househelp order?", "Can I cancel my Smart Nanny order?", "Can I cancel my Smart Nanny subscription?", "I want to cancel my smart nanny plan"],
+         "responses": ["It’s so sad you’re leaving us : (  Could I ask why you want to cancel your Smart Nanny plan?"],
          "context_set": ""
         }
 ]
