@@ -9,7 +9,7 @@ import time
 def reading_text_from_whatsapp():
     opening_whatsapp()
 
-    time.sleep(101)
+    time.sleep(100)
 
     unread_message = finding_unread_message(driver)
 
