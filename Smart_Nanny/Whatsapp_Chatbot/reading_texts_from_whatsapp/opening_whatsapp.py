@@ -2,4 +2,4 @@ from Smart_Nanny.Whatsapp_Chatbot.reading_texts_from_whatsapp.connecting_to_chro
 
 
 def opening_whatsapp():
-    driver.get("https://web.whatsapp.com")
+    driver.get("https://web.whatsapp.com/")
