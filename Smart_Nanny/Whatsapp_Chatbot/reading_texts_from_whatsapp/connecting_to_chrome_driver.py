@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 options = webdriver.ChromeOptions()
-options.add_argument("user-data-dir=C:/Users/James Muthama/AppData/Local/Google/Chrome/User Data/Default")
+options.add_experimental_option("detach", True)
 driver = webdriver.Chrome(options=options)
 
 
