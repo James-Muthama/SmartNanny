@@ -14,7 +14,7 @@ def checking_for_unread_message():
         unread_message_element = unread_message_div.find_element_by_css_selector("span")
 
         unread_message = unread_message_element.text
-
+        print(unread_message)
         return int(unread_message)
 
     except:
@@ -35,6 +35,23 @@ def opening_unread_chat(unread_message):
 
         if int(unread_messages) == unread_message:
             chat_div.click()
+            time.sleep(30)
+            break
+
+
+def reading_chat(unread_message):
+    messages_from_customer = driver.find_elements_by_class_name("_21Ahp")
+
+    unread_texts = messages_from_customer[-unread_message:]
+
+    for unread_text in unread_texts:
+        span_element = unread_text.find_element_by_css_selector("span")
+
+        customer_text = span_element.find_element_by_css_selector("span")
+
+        customer_text = customer_text.text
+
+        print(customer_text)
 
 
 opening_whatsapp()
