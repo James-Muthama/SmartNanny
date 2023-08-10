@@ -38,6 +38,7 @@ def opening_unread_chat(unread_message):
 
         if int(unread_messages) == unread_message:
             chat_div.click()
+
             time.sleep(30)
             break
 
