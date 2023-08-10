@@ -17,6 +17,7 @@ def checking_for_unread_message():
         unread_message = unread_message_element.text
 
         print(unread_message)
+
         return int(unread_message)
 
     except:
