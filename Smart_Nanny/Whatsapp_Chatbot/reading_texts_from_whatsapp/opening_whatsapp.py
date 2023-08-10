@@ -45,9 +45,7 @@ def reading_chat(unread_message):
     unread_texts = messages_from_customer[-unread_message:]
 
     for unread_text in unread_texts:
-        span_element = unread_text.find_element_by_css_selector("span")
-
-        customer_text = span_element.find_element_by_css_selector("span")
+        customer_text = unread_text.find_element_by_css_selector("span._11JPr span")
 
         customer_text = customer_text.text
 
