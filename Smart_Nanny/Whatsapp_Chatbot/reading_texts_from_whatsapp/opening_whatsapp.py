@@ -5,6 +5,7 @@ import time
 def opening_whatsapp():
     driver.maximize_window()
     driver.get("https://web.whatsapp.com/")
+    time.sleep(90)
 
 
 def checking_for_unread_message():
@@ -45,7 +46,9 @@ def reading_chat(unread_message):
     unread_texts = messages_from_customer[-unread_message:]
 
     for unread_text in unread_texts:
-        customer_text = unread_text.find_element_by_css_selector("span._11JPr span")
+        span_element = unread_text.find_element_by_class_name("_11JPr")
+
+        customer_text = span_element.find_element_by_css_selector("span")
 
         customer_text = customer_text.text
 
@@ -54,8 +57,8 @@ def reading_chat(unread_message):
 
 opening_whatsapp()
 
-time.sleep(60)
-
 unread_message = checking_for_unread_message()
 
 opening_unread_chat(unread_message)
+
+reading_chat(unread_message)
