@@ -62,8 +62,10 @@ def opening_unread_chat(unread_message):
 
 def reading_chat(unread_message):
     messages_from_customer = driver.find_elements_by_class_name("_21Ahp")
+    print(messages_from_customer.text)
 
     unread_texts = messages_from_customer[-unread_message:]
+    print(unread_texts.text)
 
     for unread_text in unread_texts:
         span_element = unread_text.find_element_by_class_name("_11JPr")
