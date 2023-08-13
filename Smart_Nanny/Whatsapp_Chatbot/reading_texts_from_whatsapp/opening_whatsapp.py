@@ -18,11 +18,13 @@ def checking_for_unread_message():
 
         unread_message = unread_message_element.text
 
-        print(unread_message)
+        if unread_message:
+            print(unread_message)
 
-        return int(unread_message)
-
-    finally:
+            return int(unread_message)
+        else:
+            return 0
+    except:
         time.sleep(60)
 
         checking_for_unread_message()
@@ -48,9 +50,6 @@ def opening_unread_chat(unread_message):
 
         # comparing it to the previous unread messages found
         if int(unread_messages) == unread_message:
-            print(unread_messages)
-            print(unread_message)
-
             # opening the chat where the unread messages are equal to the previous unread message
             chat_div.click()
 
@@ -61,12 +60,13 @@ def opening_unread_chat(unread_message):
 
 
 def reading_chat(unread_message):
+    # equates the div of the chats from the customer end to messages_from_customer
     messages_from_customer = driver.find_elements_by_class_name("_21Ahp")
-    print(messages_from_customer.text)
 
+    # takes the array of customer texts and gets the ones that are found at the bottom/ the unread chats
     unread_texts = messages_from_customer[-unread_message:]
-    print(unread_texts.text)
 
+    # reads each span element in the divs that contain the text from the customer
     for unread_text in unread_texts:
         span_element = unread_text.find_element_by_class_name("_11JPr")
 
@@ -74,13 +74,14 @@ def reading_chat(unread_message):
 
         customer_text = customer_text.text
 
-        print(customer_text)
+        return customer_text
 
 
 opening_whatsapp()
 
-unread_message = checking_for_unread_message()
+while True:
+    unread_message = checking_for_unread_message()
 
-opening_unread_chat(unread_message)
+    opening_unread_chat(unread_message)
 
-reading_chat(unread_message)
+    text = reading_chat(unread_message)
