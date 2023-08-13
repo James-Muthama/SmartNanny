@@ -31,13 +31,24 @@ def opening_unread_chat(unread_message):
     chat_divs = driver.find_elements_by_class_name("_8nE1Y")
 
     for chat_div in chat_divs:
-        unread_message_div = chat_div.find_element_by_class_name("_2H6nH")
+        # going through the structure of the whatsapp chat selection area
+        div_element = chat_div.find_element_by_class_name("_2KKXC")
+
+        sub_div_element = div_element.find_element_by_class_name("Dvjym")
+
+        span_element = sub_div_element.find_element_by_css_selector("span")
+
+        unread_message_div = span_element.find_element_by_class_name("_2H6nH")
 
         unread_message_element = unread_message_div.find_element_by_css_selector("span")
 
+        # converting the web element for the number of unread_messages to a text then int
         unread_messages = unread_message_element.text
 
+        # comparing it to the previous unread mesaages found
         if int(unread_messages) == unread_message:
+            print(unread_messages)
+            print(unread_message)
             chat_div.click()
 
             time.sleep(30)
