@@ -5,11 +5,12 @@ import time
 def opening_whatsapp():
     driver.maximize_window()
     driver.get("https://web.whatsapp.com/")
-    time.sleep(90)
+    time.sleep(120)
 
 
 def checking_for_unread_message():
     try:
+        time.sleep(15)
         unread_message_div = driver.find_element_by_class_name("_2H6nH")
 
         unread_message_element = unread_message_div.find_element_by_css_selector("span")
@@ -20,7 +21,7 @@ def checking_for_unread_message():
 
         return int(unread_message)
 
-    except:
+    finally:
         time.sleep(60)
 
         checking_for_unread_message()
