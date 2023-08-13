@@ -3,6 +3,7 @@ import time
 
 
 def opening_whatsapp():
+    # opening whatsapp
     driver.maximize_window()
     driver.get("https://web.whatsapp.com/")
     time.sleep(120)
@@ -45,13 +46,16 @@ def opening_unread_chat(unread_message):
         # converting the web element for the number of unread_messages to a text then int
         unread_messages = unread_message_element.text
 
-        # comparing it to the previous unread mesaages found
+        # comparing it to the previous unread messages found
         if int(unread_messages) == unread_message:
             print(unread_messages)
             print(unread_message)
+
+            # opening the chat where the unread messages are equal to the previous unread message
             chat_div.click()
 
-            time.sleep(30)
+            # sleep to allow the chat to open
+            time.sleep(10)
 
             break
 
