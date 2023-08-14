@@ -6,7 +6,6 @@ from training_the_model import model
 from preprocessing_json_file import labels
 from preprocessing_json_file import data
 from preprocessing_json_file import words
-from Smart_Nanny.Whatsapp_Chatbot.reading_texts_from_whatsapp.reading_customer_text import text
 
 stemmer = LancasterStemmer()
 
@@ -34,5 +33,3 @@ def chat(text):
         return "I'm not sure I understood fully what you meant by that. Please ask me something else or is there " \
                "something else I could help you with?"
 
-
-response = chat(text)
