@@ -5,3 +5,5 @@ text = reading_customer_text()
 
 response = chat(text)
 
+print(response)
+
