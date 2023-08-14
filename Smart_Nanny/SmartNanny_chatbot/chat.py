@@ -6,7 +6,7 @@ from training_the_model import model
 from preprocessing_json_file import labels
 from preprocessing_json_file import data
 from preprocessing_json_file import words
-from Smart_Nanny.Whatsapp_Chatbot.reading_texts_from_whatsapp.opening_whatsapp import text
+from Smart_Nanny.Whatsapp_Chatbot.reading_texts_from_whatsapp.reading_customer_text import text
 
 stemmer = LancasterStemmer()
 
