@@ -79,9 +79,9 @@ def reading_chat(unread_message):
 
 opening_whatsapp()
 
-while True:
-    unread_message = checking_for_unread_message()
 
-    opening_unread_chat(unread_message)
+unread_message = checking_for_unread_message()
 
-    text = reading_chat(unread_message)
+opening_unread_chat(unread_message)
+
+text = reading_chat(unread_message)
