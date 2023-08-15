@@ -4,9 +4,9 @@ from Smart_Nanny.Whatsapp_Chatbot.reading_texts_from_whatsapp.reading_customer_t
 
 opening_whatsapp()
 
-text = reading_customer_text()
+while True:
+    text = reading_customer_text()
 
-response = chat(text)
+    response = chat(text)
 
-print(response)
-
+    
