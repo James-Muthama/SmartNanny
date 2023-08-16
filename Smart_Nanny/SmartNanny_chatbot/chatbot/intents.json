@@ -9,7 +9,7 @@
          "responses": ["I am not sure how I should answer this question but I am about a year old."],
          "context_set": ""
         },
-        {"tag": "name",
+        {"tag": "my_name",
          "patterns": ["what is your name", "what should I call you", "whats your name?"],
          "responses": ["My name is Jim the Smart Nanny Chat Bot but you can call me Jim.", " I’m Jim the Smart Nanny Chat Bot"],
          "context_set": ""
