@@ -10,7 +10,7 @@
          "context_set": ""
         },
         {"tag": "my_name",
-         "patterns": ["what is your name", "what should I call you", "whats your name?"],
+         "patterns": ["what is your name", "what should I call you", "whats your name?", "Who am I speaking to?"],
          "responses": ["My name is Jim the Smart Nanny Chat Bot but you can call me Jim.", " I’m Jim the Smart Nanny Chat Bot"],
          "context_set": ""
         },
