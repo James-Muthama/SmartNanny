@@ -84,6 +84,11 @@
          "responses": ["Given our rate of about Ksh 1000 - 1200, it will cost you about Ksh 12000 a month for the 3 days a week plan."],
          "context_set": ""
         },
+        {"tag": "days_for_nanny",
+         "patterns": ["I want a nanny on {days}", "I want a househelp who will come on {days}, I want one who comes on {days}"],
+         "responses": [""],
+         "context_set": "days_for_nanny"
+        },
         {"tag": "plans",
          "patterns": ["What other plans do you offer?", "What plans do you offer?", "Could you explain to me your plans?", "What is the 2 days a week plan?", "What is the 3 days a week plan?", "What is the once a week plan?", "Explain to me the 2 days a week plan?", "Explain to me the once a week plan?", "Explain to me the 3 days a week plan?", "Explain to me your plans"],
          "responses": ["We offer 3 tpes of plans at Smart Nanny; a once a week plan, 2 days a week plan and a 3 days a week plan. For the once a week plan, we'll have a smart nanny come to your place every once a week on a day of your choosing. Similarly, the 2 days a week and the 3 days a week plan will have a smart nanny come to your place two and three times a week respectively on days of your choosing."],
