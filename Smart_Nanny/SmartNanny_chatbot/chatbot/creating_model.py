@@ -1,8 +1,8 @@
 import tflearn
 import tensorflow
 from nltk.stem.lancaster import LancasterStemmer
-from Smart_Nanny.SmartNanny_chatbot import training
-from Smart_Nanny.SmartNanny_chatbot import output
+from preprocessing_json_file import training
+from preprocessing_json_file import output
 
 stemmer = LancasterStemmer()
 
