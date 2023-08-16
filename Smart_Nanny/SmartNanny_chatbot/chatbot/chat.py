@@ -2,10 +2,10 @@ import numpy as np
 import random
 from nltk.stem.lancaster import LancasterStemmer
 from converting_input_to_numpy_array import bag_of_words
-from training_the_model import model
-from preprocessing_json_file import labels
-from preprocessing_json_file import data
-from preprocessing_json_file import words
+from Smart_Nanny.SmartNanny_chatbot import model
+from Smart_Nanny.SmartNanny_chatbot import labels
+from Smart_Nanny.SmartNanny_chatbot import data
+from Smart_Nanny.SmartNanny_chatbot import words
 
 stemmer = LancasterStemmer()
 
