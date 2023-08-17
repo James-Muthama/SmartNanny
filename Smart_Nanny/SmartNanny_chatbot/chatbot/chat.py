@@ -27,7 +27,7 @@ def chat(text):
     # only allows prediction with a 70% chance to be passed to the user any less passes an alternate response
     if results[results_index] > 0.7:
         for tg in data["intents"]:
-            if tg["tag"] == "days_for_nanny":
+            if tg["tag"] == "days_for_nanny_once_a_week_plan":
                 response = checking_nanny_availability(text)
                 return response
             elif tg["tag"] == tag:
@@ -37,3 +37,7 @@ def chat(text):
         return "I'm not sure I understood fully what you meant by that. Please ask me something else or is there " \
                "something else I could help you with?"
 
+
+text = "I want them to come on Monday"
+response = chat(text)
+print(response)
