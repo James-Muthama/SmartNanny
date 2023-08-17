@@ -184,9 +184,9 @@ class NannyCollection:
                                 if results[field_name] == value:
                                     date.append(field_name)
             else:
-                print("No available Nanny's at the moment")
+                return "No available Nanny's at the moment"
 
-            print(date)
+            return date
 
         elif number_of_days == 3:
             date = []
@@ -209,9 +209,8 @@ class NannyCollection:
                                 if results[field_name] == value:
                                     date.append(field_name)
 
-                print(date)
+                return date
 
             else:
-                print("No available Nanny's at the moment")
+                return "No available Nanny's at the moment"
 
-            print(date)
