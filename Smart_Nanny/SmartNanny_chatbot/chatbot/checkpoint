@@ -1,2 +1,2 @@
-model_checkpoint_path: "C:\\Users\\James Muthama\\PycharmProjects\\ChatBot_SmartNanny\\Smart_Nanny\\SmartNanny_chatbot\\SmartNannyBot.tflearn"
-all_model_checkpoint_paths: "C:\\Users\\James Muthama\\PycharmProjects\\ChatBot_SmartNanny\\Smart_Nanny\\SmartNanny_chatbot\\SmartNannyBot.tflearn"
+model_checkpoint_path: "C:\\Users\\James Muthama\\PycharmProjects\\ChatBot_SmartNanny\\Smart_Nanny\\SmartNanny_chatbot\\chatbot\\SmartNannyBot.tflearn"
+all_model_checkpoint_paths: "C:\\Users\\James Muthama\\PycharmProjects\\ChatBot_SmartNanny\\Smart_Nanny\\SmartNanny_chatbot\\chatbot\\SmartNannyBot.tflearn"
