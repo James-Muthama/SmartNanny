@@ -2,10 +2,11 @@ import numpy as np
 import random
 from nltk.stem.lancaster import LancasterStemmer
 from converting_input_to_numpy_array import bag_of_words
-from Smart_Nanny.SmartNanny_chatbot import model
-from Smart_Nanny.SmartNanny_chatbot import labels
-from Smart_Nanny.SmartNanny_chatbot import data
-from Smart_Nanny.SmartNanny_chatbot import words
+from training_the_model import model
+from preprocessing_json_file import labels
+from preprocessing_json_file import data
+from preprocessing_json_file import words
+from Smart_Nanny.SmartNanny_chatbot.connecting_chatbot_to_database.placing_order import checking_nanny_availability
 
 stemmer = LancasterStemmer()
 
@@ -26,7 +27,10 @@ def chat(text):
     # only allows prediction with a 70% chance to be passed to the user any less passes an alternate response
     if results[results_index] > 0.7:
         for tg in data["intents"]:
-            if tg["tag"] == tag:
+            if tg["tag"] == "days_for_nanny":
+                response = checking_nanny_availability(text)
+                return response
+            elif tg["tag"] == tag:
                 responses = tg["responses"]
                 return random.choice(responses)
     else:
