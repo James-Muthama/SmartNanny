@@ -57,7 +57,7 @@
         {"tag": "once_a_week_plan",
          "patterns": ["I want the once a week plan", "I would like the once in a week plan", "Could I have the once in a week plan.", "I want a househelp who comes once a week"],
          "responses": ["Since you’ve selected the once in a week plan, next we’ll have to choose the day in the week you would want a smart nanny to come over"],
-         "context_set": ""
+         "context_set": "once_a_week_plan"
         },
         {"tag": "questioning_once_a_week",
          "patterns": ["How much is the once a week plan?", "How much will it be to have a househelp who comes once a week?"],
@@ -84,10 +84,10 @@
          "responses": ["Given our rate of about Ksh 1000 - 1200, it will cost you about Ksh 12000 a month for the 3 days a week plan."],
          "context_set": ""
         },
-        {"tag": "days_for_nanny",
-         "patterns": ["I want a nanny on {days}", "I want a househelp who will come on {days}, I want one who comes on {days}"],
+        {"tag": "days_for_nanny_once_a_week_plan",
+         "patterns": ["Could them come on Monday|Tuesday|Wednesday|Thursday|Friday|Saturday", "I want them to come on Monday|Tuesday|Wednesday|Thursday|Friday|Saturday, Can I have one who will come on Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"],
          "responses": [""],
-         "context_set": "days_for_nanny"
+         "context_set": "once_a_week_plan"
         },
         {"tag": "plans",
          "patterns": ["What other plans do you offer?", "What plans do you offer?", "Could you explain to me your plans?", "What is the 2 days a week plan?", "What is the 3 days a week plan?", "What is the once a week plan?", "Explain to me the 2 days a week plan?", "Explain to me the once a week plan?", "Explain to me the 3 days a week plan?", "Explain to me your plans"],
