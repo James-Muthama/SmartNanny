@@ -183,10 +183,13 @@ class NannyCollection:
                             for field_name, value in days:
                                 if results[field_name] == value:
                                     date.append(field_name)
+
+                return date
+
             else:
                 return "No available Nanny's at the moment"
 
-            return date
+
 
         elif number_of_days == 3:
             date = []
@@ -213,4 +216,3 @@ class NannyCollection:
 
             else:
                 return "No available Nanny's at the moment"
-
