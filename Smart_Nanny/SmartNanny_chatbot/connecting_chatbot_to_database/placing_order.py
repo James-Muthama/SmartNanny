@@ -5,19 +5,16 @@ nanny_collection = NannyCollection("SmartNanny", "Nanny")
 
 def checking_nanny_availability(sentence):
     days = []
-    for word in sentence:
-        if word == "Monday":
-            days.append("Mon")
-        elif word == "Tuesday":
-            days.append("Tue")
-        elif word == "Wednesday":
-            days.append("Wed")
-        elif word == "Thursday":
-            days.append("Thur")
-        elif word == "Friday":
-            days.append("Fri")
-        elif word == "Saturday":
-            days.append("Sat")
+    days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+    words = sentence.split()
+
+    for word in words:
+        # Check if the word is a day of the week
+        if word in days_of_week:
+            # Get the shortened version of the day
+            shortened_day = word[:3]  # Using the first three letters as the shortened version
+            days.append(shortened_day)
 
     # checking for available nannies with
     available_nannies = nanny_collection.checking_if_nanny_free_on_the_days(days)
