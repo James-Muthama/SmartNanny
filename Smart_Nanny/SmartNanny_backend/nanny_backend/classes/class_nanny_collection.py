@@ -147,12 +147,12 @@ class NannyCollection:
 
             query = {
                 '$or': [
-                    {'Mon': "null"},
-                    {'Tue': "null"},
-                    {'Wed': "null"},
-                    {'Thur': "null"},
-                    {'Fri': "null"},
-                    {'Sat': "null"}
+                    {'mon': "null"},
+                    {'tue': "null"},
+                    {'wed': "null"},
+                    {'thur': "null"},
+                    {'fri': "null"},
+                    {'sat': "null"}
                 ]
             }
 
@@ -176,9 +176,9 @@ class NannyCollection:
             date = []
             query = {
                 '$or': [
-                    {"$and": [{"Mon": "null"}, {"Thur": "null"}]},
-                    {"$and": [{"Tue": "null"}, {"Fri": "null"}]},
-                    {"$and": [{"Wed": "null"}, {"Sat": "null"}]}
+                    {"$and": [{"mon": "null"}, {"thur": "null"}]},
+                    {"$and": [{"tue": "null"}, {"fri": "null"}]},
+                    {"$and": [{"wed": "null"}, {"sat": "null"}]}
                 ]
             }
 
@@ -206,8 +206,8 @@ class NannyCollection:
             date = []
             query = {
                 '$or': [
-                    {"$and": [{"Mon": "null"}, {"Wed": "null"}, {"Fri": "null"}]},
-                    {"$and": [{"Tue": "null"}, {"Thur": "null"}, {"Sat": "null"}]}
+                    {"$and": [{"mon": "null"}, {"wed": "null"}, {"fri": "null"}]},
+                    {"$and": [{"tue": "null"}, {"thur": "null"}, {"sat": "null"}]}
                 ]
             }
 

@@ -5,7 +5,9 @@ nanny_collection = NannyCollection("SmartNanny", "Nanny")
 
 def checking_nanny_availability(sentence):
     days = []
-    days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    days_of_week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+
+    sentence.lower()
 
     words = sentence.split()
 
@@ -29,12 +31,12 @@ def checking_nanny_availability(sentence):
             number_of_days_recommended = len(dates)
 
             abbrev_to_full = {
-                "Mon": "Monday",
-                "Tue": "Tuesday",
-                "Wed": "Wednesday",
-                "Thur": "Thursday",
-                "Fri": "Friday",
-                "Sat": "Saturday",
+                "mon": "Monday",
+                "tue": "Tuesday",
+                "wed": "Wednesday",
+                "thur": "Thursday",
+                "fri": "Friday",
+                "sat": "Saturday",
             }
 
             for date in dates:
@@ -58,5 +60,5 @@ def checking_nanny_availability(sentence):
                        "available on {day1}, {day2}, {day3}, {day4} and {day5}.".format(day1=siku[0], day2=siku[1],
                                                                                         day3=siku[2], day4=siku[3],
                                                                                         day5=siku[4])
-            else:
-                return dates
+        else:
+            return dates
