@@ -38,6 +38,6 @@ def chat(text):
                "something else I could help you with?"
 
 
-text = "I want them to come on Monday and Wednesday"
+text = "I want them to come on Saturday"
 response = chat(text)
 print(response)

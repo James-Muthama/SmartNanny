@@ -1,8 +1,8 @@
 nanny_validator = {
     "$jsonSchema": {
         "bsonType": "object",
-        "required": ["name", "id_number", "date_of_birth", "phone_no", "address", "employment_start_date", "mon", "tue",
-                     "wed", "thur", "fri", "sat", "salary", "payment_number"],
+        "required": ["name", "id_number", "date_of_birth", "phone_no", "address", "employment_start_date", "Mon", "Tue",
+                     "Wed", "Thur", "Fri", "Sat", "salary", "payment_number"],
         "properties": {
             "name": {
                 "bsonType": "string",
@@ -30,7 +30,7 @@ nanny_validator = {
                 "bsonType": "date",
                 "description": "Enter a string for the day they started employment"
             },
-            "mon": {
+            "Mon": {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
@@ -38,7 +38,7 @@ nanny_validator = {
                 ],
                 "description": "This is the customer_id they are meant to work for on Monday"
             },
-            "tue": {
+            "Tue": {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
@@ -46,7 +46,7 @@ nanny_validator = {
                 ],
                 "description": "This is the customer_id they are meant to work for on Tuesday"
             },
-            "wed": {
+            "Wed": {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
@@ -54,7 +54,7 @@ nanny_validator = {
                 ],
                 "description": "This is the customer_id they are meant to work for on Wednesday"
             },
-            "thur": {
+            "Thur": {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
@@ -62,7 +62,7 @@ nanny_validator = {
                 ],
                 "description": "This is the customer_id they are meant to work for on Thursday"
             },
-            "fri": {
+            "Fri": {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
@@ -70,7 +70,7 @@ nanny_validator = {
                 ],
                 "description": "This is the customer_id they are meant to work for on Friday"
             },
-            "sat": {
+            "Sat": {
                 "anyOf": [
                     {"bsonType": "null"},
                     {"bsonType": "objectId"},
