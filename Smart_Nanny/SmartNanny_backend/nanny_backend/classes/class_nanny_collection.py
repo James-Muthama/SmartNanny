@@ -142,17 +142,18 @@ class NannyCollection:
 
         # if one day was suggested give back any other one day when a nanny is free
         if number_of_days == 1:
+            date = []
 
             # uses the or operator to choose between days and equates it to query
 
             query = {
                 '$or': [
-                    {'mon': "null"},
-                    {'tue': "null"},
-                    {'wed': "null"},
-                    {'thur': "null"},
-                    {'fri': "null"},
-                    {'sat': "null"}
+                    {'Mon': "null"},
+                    {'Tue': "null"},
+                    {'Wed': "null"},
+                    {'Thur': "null"},
+                    {'Fri': "null"},
+                    {'Sat': "null"}
                 ]
             }
 
@@ -163,7 +164,8 @@ class NannyCollection:
             if results:
                 day = next((key for key, value in results.items() if value == "null"), None)
                 if day:
-                    return day
+                    date.append(day)
+                    return date
 
             # if no result is found they return no available Nanny's at the moment
             else:
@@ -176,9 +178,9 @@ class NannyCollection:
             date = []
             query = {
                 '$or': [
-                    {"$and": [{"mon": "null"}, {"thur": "null"}]},
-                    {"$and": [{"tue": "null"}, {"fri": "null"}]},
-                    {"$and": [{"wed": "null"}, {"sat": "null"}]}
+                    {"$and": [{"Mon": "null"}, {"Thur": "null"}]},
+                    {"$and": [{"Tue": "null"}, {"Fri": "null"}]},
+                    {"$and": [{"Wed": "null"}, {"Sat": "null"}]}
                 ]
             }
 
@@ -206,8 +208,8 @@ class NannyCollection:
             date = []
             query = {
                 '$or': [
-                    {"$and": [{"mon": "null"}, {"wed": "null"}, {"fri": "null"}]},
-                    {"$and": [{"tue": "null"}, {"thur": "null"}, {"sat": "null"}]}
+                    {"$and": [{"Mon": "null"}, {"Wed": "null"}, {"Fri": "null"}]},
+                    {"$and": [{"Tue": "null"}, {"Thur": "null"}, {"Sat": "null"}]}
                 ]
             }
 

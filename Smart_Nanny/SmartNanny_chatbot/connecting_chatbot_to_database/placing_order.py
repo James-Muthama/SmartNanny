@@ -5,17 +5,26 @@ nanny_collection = NannyCollection("SmartNanny", "Nanny")
 
 def checking_nanny_availability(sentence):
     days = []
-    days_of_week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    days_of_the_week = {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday"
+    }
 
-    sentence.lower()
+    sentence = sentence.lower()
 
     words = sentence.split()
 
     for word in words:
         # Check if the word is a day of the week
-        if word in days_of_week:
+        day = days_of_the_week.get(word)
+
+        if day:
             # Get the shortened version of the day
-            shortened_day = word[:3]  # Using the first three letters as the shortened version
+            shortened_day = day[:3]  # Using the first three letters as the shortened version
             days.append(shortened_day)
 
     # checking for available nannies with
@@ -31,12 +40,12 @@ def checking_nanny_availability(sentence):
             number_of_days_recommended = len(dates)
 
             abbrev_to_full = {
-                "mon": "Monday",
-                "tue": "Tuesday",
-                "wed": "Wednesday",
-                "thur": "Thursday",
-                "fri": "Friday",
-                "sat": "Saturday",
+                "Mon": "Monday",
+                "Tue": "Tuesday",
+                "Wed": "Wednesday",
+                "Thur": "Thursday",
+                "Fri": "Friday",
+                "Sat": "Saturday",
             }
 
             for date in dates:
@@ -44,7 +53,7 @@ def checking_nanny_availability(sentence):
 
             if number_of_days_recommended == 1:
                 return "Unfortunately we don't have househelps available on that day. But we have a househelp " \
-                       "available on {day}.".format(day=siku)
+                       "available on {day}.".format(day=siku[0])
             elif number_of_days_recommended == 2:
                 return "Unfortunately we don't have househelps available on that day. But we have a househelp " \
                        "available on {day1} and {day2}.".format(day1=siku[0], day2=siku[1])
