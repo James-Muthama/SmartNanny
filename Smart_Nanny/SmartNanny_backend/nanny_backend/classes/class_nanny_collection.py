@@ -89,15 +89,22 @@ class NannyCollection:
     # Function checks if there are any free nanny's on the days that the customer is requesting for
     def checking_if_nanny_free_on_the_days(self, dates):
         available_nannies = 0
+        all_dates_have_nannies = True  # Initialize the flag
 
         # checks the days if any nanny is free
         for date in dates:
             # Checking if a date is equal to null
             availability = self.collection.find({date: "null"}).count()
 
-            available_nannies += availability
+            if availability == 0:
+                all_dates_have_nannies = False  # Set the flag to False
+            else:
+                available_nannies += availability
 
-        return available_nannies
+        if all_dates_have_nannies:
+            return available_nannies
+        else:
+            return 0
 
     # Function takes in the dates the customer would like to have the nanny and finds one nanny free on the said days
     # and returns the nanny_id, name, phone number and date
@@ -160,7 +167,10 @@ class NannyCollection:
 
             # if no result is found they return no available Nanny's at the moment
             else:
-                return "No available Nanny's at the moment"
+                return "Unfortunately, at this moment, we are experiencing an exceptional surge in demand, which has " \
+                       "temporarily exhausted our available nanny resources. We understand the importance of our " \
+                       "services to you and deeply regret any inconvenience this may cause.We're actively addressing " \
+                       "this and will have more availability by week's end. Thank you for your understanding."
 
         elif number_of_days == 2:
             date = []
@@ -187,9 +197,10 @@ class NannyCollection:
                 return date
 
             else:
-                return "No available Nanny's at the moment"
-
-
+                return "Unfortunately, at this moment, we are experiencing an exceptional surge in demand, which has " \
+                       "temporarily exhausted our available nanny resources. We understand the importance of our " \
+                       "services to you and deeply regret any inconvenience this may cause.We're actively addressing " \
+                       "this and will have more availability by week's end. Thank you for your understanding."
 
         elif number_of_days == 3:
             date = []
@@ -215,4 +226,7 @@ class NannyCollection:
                 return date
 
             else:
-                return "No available Nanny's at the moment"
+                return "Unfortunately, at this moment, we are experiencing an exceptional surge in demand, which has " \
+                       "temporarily exhausted our available nanny resources. We understand the importance of our " \
+                       "services to you and deeply regret any inconvenience this may cause.We're actively addressing " \
+                       "this and will have more availability by week's end. Thank you for your understanding."
