@@ -24,7 +24,7 @@ def chat(text):
     # finds the tag with matching probability
     tag = labels[results_index]
 
-    # only allows prediction with a 70% chance to be passed to the user any less passes an alternate response
+    # only allows prediction with a 70% chance to be passed to the user any fewer passes an alternate response
     if results[results_index] > 0.7:
         for tg in data["intents"]:
             if tg["tag"] == "days_for_nanny_once_a_week_plan":

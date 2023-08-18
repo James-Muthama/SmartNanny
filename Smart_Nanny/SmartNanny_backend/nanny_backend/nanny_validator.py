@@ -1,8 +1,8 @@
 nanny_validator = {
     "$jsonSchema": {
         "bsonType": "object",
-        "required": ["name", "id_number", "date_of_birth", "phone_no", "address", "employment_start_date", "Mon", "Tue",
-                     "Wed", "Thur", "Fri", "Sat", "salary", "payment_number"],
+        "required": ["name", "id_number", "date_of_birth", "phone_no", "address", "employment_start_date", "mon", "tue",
+                     "wed", "thur", "fri", "sat", "salary", "payment_number"],
         "properties": {
             "name": {
                 "bsonType": "string",
