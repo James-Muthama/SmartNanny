@@ -1,17 +1,17 @@
 {"intents": [
         {"tag": "greeting",
-         "patterns": ["Hey", "Hi", "Hello", "Hae", "Helo"],
+         "patterns": ["Hey Tim", "Hi Tim", "Hello Tim", "Hae Tim", "Helo Tim"],
          "responses": ["Hi! Thank you for reaching us today. If you have any questions about Smart Nanny and our services, I am happy to help.", "Hello, welcome to Smart Nanny how can we help you today?", "Hi! How can I assist you today?"],
          "context_set": ""
         },
         {"tag": "age",
          "patterns": ["How old are you?", "What is your age?", "When were you created?"],
-         "responses": ["I am not sure how I should answer this question but I am about a year old."],
+         "responses": ["I am not sure how I should answer this question because I am a chatbot but I am about a year old."],
          "context_set": ""
         },
         {"tag": "my_name",
          "patterns": ["what is your name", "what should I call you", "whats your name?", "Who am I speaking to?"],
-         "responses": ["My name is Jim the Smart Nanny Chat Bot but you can call me Jim.", " I’m Jim the Smart Nanny Chat Bot"],
+         "responses": ["My name is Jim the Smart Nanny A.I powered chatbot but you can call me Jim.", " I am Jim the Smart Nanny A.I powered chatbot"],
          "context_set": ""
         },
         {"tag": "shop",
@@ -21,22 +21,22 @@
         },
         {"tag": "hours",
          "patterns": ["What time are you open?", "What time do we close?", "When are you guys open?", "What are your hours of operation?"],
-         "responses": ["Smart Nanny is open from 7am to 4pm Monday - Friday but I am available to chat at anytime."],
+         "responses": ["Smart Nanny is open from 8am to 4pm Monday - Friday but I am available to chat at anytime."],
          "context_set": ""
         },
         {"tag": "charges",
          "patterns": ["What are your rates?", "How much do you charge for a househelp?", "How much do you charge for a nanny", "What are your rates for househelps or nannies?", "How much are your rates?", "How much do I have to pay for a nanny or househelp?"],
-         "responses": ["We charge from Ksh 1000 - 1200 a day, depending on how big your house is.", "Our rates are in the ball-park of Ksh 1000 - 1200 a day."],
+         "responses": ["We charge from Ksh 1000 - 1200 a day", "Our rates are in the ball-park of Ksh 1000 - 1200 a day."],
          "context_set": ""
         },
         {"tag": "bargain",
          "patterns": ["Could you go lower than that?", "Do you offer any cheaper services?", "Do you’re rates go any lower than that?", "I cannot afford that can you go any cheaper than that?", "Can I getter a cheaper deal than that?"],
-         "responses": ["Sorry but unfortunately our rates are fixed. This is to allow our employees to have a stable income while providing quality services."],
+         "responses": ["Sorry but unfortunately our rates are fixed. This is to allow our employees to have a stable income while providing you with quality services."],
          "context_set": ""
         },
         {"tag": "owner",
          "patterns": [" Who is the founder of Smart Nanny?", "Who is your founder?", "Who created you?", "Who is the owner of Smart Nanny?", " Who runs Smart Nanny?"],
-         "responses": ["Smart Nanny was founded by James Muthama a Strathmore University Computer Science Student. If you would love to contact him feel free. You can reach him through jamesmuthaiks@gmail.com.", "I was created by James Muthama a Strathmore University Computer Science Student. If you would love to contact him feel free. You can reach him through jamesmuthaiks@gmail.com."],
+         "responses": ["Smart Nanny was founded by James Muthama a Strathmore University Computer Science Student. If you would love to contact him feel free. You can reach him through jamesmuthaiks@gmail.com."],
          "context_set": ""
         },
         {"tag": "ordering",
@@ -57,42 +57,42 @@
         {"tag": "once_a_week_plan",
          "patterns": ["I want the once a week plan", "I would like the once in a week plan", "Could I have the once in a week plan.", "I want a househelp who comes once a week"],
          "responses": ["Since you’ve selected the once in a week plan, next we’ll have to choose the day in the week you would want a smart nanny to come over"],
-         "context_set": "once_a_week_plan"
+         "context_set": "once_a_week_plan, plans"
         },
         {"tag": "questioning_once_a_week",
          "patterns": ["How much is the once a week plan?", "How much will it be to have a househelp who comes once a week?"],
          "responses": ["Given our rate of about Ksh 1000 - 1200 a day, it will cost you about Ksh 4000 a month for the once a week plan."],
-         "context_set": ""
+         "context_set": "once_a_week_plan"
         },
         {"tag": "order_2day_a_week",
          "patterns": ["I want a one who comes two days in a week", "I want the two day one", "I want househelp who comes atleast 2 days a week", "I want the 2 days a week plan"],
          "responses": ["Since you’ve selected the 2 days a week plan, next we’ll have to choose the two days in the week you would want a smart nanny to come over."],
-         "context_set": ""
+         "context_set": "order_2day_a_week, plans"
         },
         {"tag": "questioning_2day_a_week",
          "patterns": ["How much is the 2 days a week plan?", "How much will it be to have a househelp who comes twice a week?"],
          "responses": ["Given our rate of about Ksh 1000 - 1200, it will cost you about Ksh 8000 a month for the 2 days a week plan."],
-         "context_set": ""
+         "context_set": "order_2day_a_week"
         },
         {"tag": "order_3day_per_week",
          "patterns": ["I want a one who comes three days in a week", "I want the three day one", "I want househelp who comes atleast 3 days a week", "I want the 3 days a week plan"],
          "responses": ["Since you’ve selected the 3 days a week plan, next we’ll have to choose the three days in the week you would want a smart nanny to come over"],
-         "context_set": ""
+         "context_set": "order_3day_per_week, plans"
         },
         {"tag": "questioning_3day_a_week",
          "patterns": ["How much is the 3 days a week plan?", "How much will it be to have a househelp who comes thrice a week?"],
          "responses": ["Given our rate of about Ksh 1000 - 1200, it will cost you about Ksh 12000 a month for the 3 days a week plan."],
-         "context_set": ""
+         "context_set": "order_3day_per_week"
         },
-        {"tag": "days_for_nanny_once_a_week_plan",
+        {"tag": "days_for_nanny",
          "patterns": ["Could them come on Monday|Tuesday|Wednesday|Thursday|Friday|Saturday", "I want them to come on Monday|Tuesday|Wednesday|Thursday|Friday|Saturday, Can I have one who will come on Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"],
          "responses": [""],
-         "context_set": "once_a_week_plan"
+         "context_set": "once_a_week_plan, order_2day_a_week, order_3day_per_week"
         },
         {"tag": "plans",
          "patterns": ["What other plans do you offer?", "What plans do you offer?", "Could you explain to me your plans?", "What is the 2 days a week plan?", "What is the 3 days a week plan?", "What is the once a week plan?", "Explain to me the 2 days a week plan?", "Explain to me the once a week plan?", "Explain to me the 3 days a week plan?", "Explain to me your plans"],
          "responses": ["We offer 3 tpes of plans at Smart Nanny; a once a week plan, 2 days a week plan and a 3 days a week plan. For the once a week plan, we'll have a smart nanny come to your place every once a week on a day of your choosing. Similarly, the 2 days a week and the 3 days a week plan will have a smart nanny come to your place two and three times a week respectively on days of your choosing."],
-         "context_set": ""
+         "context_set": "plans"
         },
         {"tag": "order_stay_at_home",
          "patterns": ["I want one who will come live with me", "I would like one who stays at home in my house", "I want a stay at home househelp"],
