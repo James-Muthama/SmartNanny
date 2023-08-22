@@ -179,7 +179,10 @@ class NannyCollection:
             query = {
                 '$or': [
                     {"$and": [{"Mon": "null"}, {"Thur": "null"}]},
+                    {"$and": [{"Mon": "null"}, {"Fri": "null"}]},
+                    {"$and": [{"Mon": "null"}, {"Sat": "null"}]},
                     {"$and": [{"Tue": "null"}, {"Fri": "null"}]},
+                    {"$and": [{"Tue": "null"}, {"Sat": "null"}]},
                     {"$and": [{"Wed": "null"}, {"Sat": "null"}]}
                 ]
             }
