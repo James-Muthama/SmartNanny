@@ -7,6 +7,6 @@ opening_whatsapp()
 while True:
     text = reading_customer_text()
 
-    response = (text)
+    response = chat(text)
 
     
