@@ -121,12 +121,12 @@
         },
         {"tag": "cancel",
          "patterns": ["I would like to cancel my order", "I want to cancel my request", "Can I cancel my househelp order?", "Can I cancel my Smart Nanny order?", "Can I cancel my Smart Nanny subscription?", "I want to cancel my smart nanny plan"],
-         "responses": ["It’s so sad you’re leaving us : (  Could I ask why you want to cancel your Smart Nanny plan? If you still want to cancel your Smart Nanny plan kindly provide us with the name you signed up with i.e My name is Alice Kamau"],
+         "responses": ["It’s so sad you’re leaving us : (  Could I ask why you want to cancel your Smart Nanny plan? If you still want to cancel your Smart Nanny plan or subscription kindly provide us with the name you signed up with i.e My name is Alice Kamau"],
          "context_set": "cancel"
         },
         {"tag": "cancelling_plan",
          "patterns": ["My name is {name}"],
-         "responses": ["It's so unfortunate to see you, {name} go. We appreciate your time spent with us."],
+         "responses": [""],
          "context_set": "cancel"
         }
 ]
