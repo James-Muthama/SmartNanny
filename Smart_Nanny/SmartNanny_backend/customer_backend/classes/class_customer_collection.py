@@ -22,17 +22,15 @@ class CustomerCollection:
         inserted_id = self.collection.insert_one(customer_data).inserted_id
         return inserted_id
 
-    def delete_customer(self, _id):
-        from bson.objectid import ObjectId
-        _id = ObjectId(_id)
-
-        results = self.collection.find_one({"_id": _id})
+    def delete_customer(self, name):
+        results = self.collection.find_one({"name": name})
 
         days = results["days_of_the_week"]
+        customer_id = results["_id"]
 
-        self.collection.delete_one({"_id": _id})
+        self.collection.delete_one({"name": name})
 
-        return days
+        return days, customer_id
 
     def deleting_nanny_from_customer_collection(self, _id):
         from bson.objectid import ObjectId
