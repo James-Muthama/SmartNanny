@@ -87,7 +87,12 @@
         {"tag": "days_for_nanny",
          "patterns": ["Could them come on Monday|Tuesday|Wednesday|Thursday|Friday|Saturday", "I want them to come on Monday|Tuesday|Wednesday|Thursday|Friday|Saturday, Can I have one who will come on Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"],
          "responses": [""],
-         "context_set": "once_a_week_plan, order_2day_a_week, order_3day_per_week"
+         "context_set": "days_for_nanny, once_a_week_plan, order_2day_a_week, order_3day_per_week"
+        },
+        {"tag": "insert_new_customer",
+         "patterns": ["{name}, {phone_number}, {address}, {days}"],
+         "responses": [""],
+         "context_set": "new_customer, once_a_week_plan, order_2day_a_week, order_3day_per_week"
         },
         {"tag": "plans",
          "patterns": ["What other plans do you offer?", "What plans do you offer?", "Could you explain to me your plans?", "What is the 2 days a week plan?", "What is the 3 days a week plan?", "What is the once a week plan?", "Explain to me the 2 days a week plan?", "Explain to me the once a week plan?", "Explain to me the 3 days a week plan?", "Explain to me your plans"],
