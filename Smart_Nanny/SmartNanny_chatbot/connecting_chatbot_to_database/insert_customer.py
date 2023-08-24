@@ -1,3 +1,7 @@
+# Import necessary classes and modules
+from Smart_Nanny.SmartNanny_backend.customer_backend.classes.class_customer_collection import CustomerCollection
+from Smart_Nanny.SmartNanny_backend.customer_backend.classes.class_customer import Customer
+import datetime
 import re
 
 
@@ -53,4 +57,39 @@ def getting_shortname_for_days(siku):
 
 
 def inserting_customer_to_database(sentence):
-    name, phone_number, address, days = extract_customer_info(sentence)
+    answer = extract_customer_info(sentence)
+
+    if answer == "Please add your name again in the format of your name, your phone-number, your address as house " \
+                 "number- apartments or estat name - Closest road to your house, days you will need a househelp inside " \
+                 "of [ ] for example James Muthama, 0712345678, S90 - Lata Aparatments - Lata Rd,[Monday, Thursday]":
+        return answer
+    else:
+        name, phone_number, address, days = extract_customer_info(sentence)
+
+        # Create an instance of CustomerCollection
+        customer_collection = CustomerCollection("SmartNanny", "Customer")
+
+        # Prompt the user to enter customer information
+        input_line = input("Enter customer information: ")
+
+        # Extract customer information using the extract_customer_info function
+        name, phone_number, address, days = extract_customer_info(input_line)
+
+        # Create a new Customer object with the extracted information
+        new_customer = Customer(
+            name,
+            int(phone_number),
+            address.split("-"),
+            datetime.datetime.now(),
+            len(days),
+            days,
+            "null",
+            "null",
+            int(len(days)*1000)
+        )
+
+        # Insert the new customer into the database
+        customer_id = customer_collection.insert_customer(new_customer)
+        print("Customer inserted with ID:", customer_id)
+
+
