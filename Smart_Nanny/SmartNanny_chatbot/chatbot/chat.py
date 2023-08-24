@@ -33,7 +33,7 @@ def chat(text):
                 return responses
             if tg["cancelling_plan"] == tg:
                 responses = cancelling_subscription(text)
-                return response
+                return responses
             elif tg["tag"] == tag:
                 responses = tg["responses"]
                 return random.choice(responses)
