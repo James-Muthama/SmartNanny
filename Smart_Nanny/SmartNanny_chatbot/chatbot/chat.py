@@ -29,11 +29,11 @@ def chat(text):
     if results[results_index] > 0.7:
         for tg in data["intents"]:
             if tg["tag"] == "days_for_nanny_once_a_week_plan":
-                responses = checking_nanny_availability(text)
-                return responses
+                response = checking_nanny_availability(text)
+                return response
             if tg["cancelling_plan"] == tg:
-                responses = cancelling_subscription(text)
-                return responses
+                response = cancelling_subscription(text)
+                return response
             elif tg["tag"] == tag:
                 responses = tg["responses"]
                 return random.choice(responses)
