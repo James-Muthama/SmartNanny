@@ -32,7 +32,7 @@ def chat(text):
                 responses = checking_nanny_availability(text)
                 return responses
             if tg["cancelling_plan"] == tg:
-                response = cancelling_subscription(text)
+                responses = cancelling_subscription(text)
                 return response
             elif tg["tag"] == tag:
                 responses = tg["responses"]
