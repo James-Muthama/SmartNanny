@@ -30,7 +30,7 @@ def chat(text):
         for tg in data["intents"]:
             if tg["tag"] == "days_for_nanny_once_a_week_plan":
                 responses = checking_nanny_availability(text)
-                return response
+                return responses
             if tg["cancelling_plan"] == tg:
                 response = cancelling_subscription(text)
                 return response
