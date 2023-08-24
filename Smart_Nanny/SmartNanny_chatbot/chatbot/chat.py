@@ -29,7 +29,7 @@ def chat(text):
     if results[results_index] > 0.7:
         for tg in data["intents"]:
             if tg["tag"] == "days_for_nanny_once_a_week_plan":
-                response = checking_nanny_availability(text)
+                responses = checking_nanny_availability(text)
                 return response
             if tg["cancelling_plan"] == tg:
                 response = cancelling_subscription(text)
