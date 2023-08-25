@@ -1,8 +1,12 @@
 # Import necessary classes and modules
 from Smart_Nanny.SmartNanny_backend.customer_backend.classes.class_customer_collection import CustomerCollection
 from Smart_Nanny.SmartNanny_backend.customer_backend.classes.class_customer import Customer
+from Smart_Nanny.SmartNanny_backend.nanny_backend.classes.class_nanny_collection import NannyCollection
 import datetime
 import re
+
+nanny_collection = NannyCollection("SmartNanny", "Nanny")
+customer_collection = CustomerCollection("SmartNanny", "Customer")
 
 
 # Function to extract customer information from the input line
@@ -56,10 +60,63 @@ def getting_shortname_for_days(siku):
     return days
 
 
-def inserting_customer_to_db(name, phone_number, address, days):
-    # Create an instance of CustomerCollection
-    customer_collection = CustomerCollection("SmartNanny", "Customer")
+def matching_nanny_and_customer(customer_id, days):
+    # checking for available nannies with
+    available_nannies = nanny_collection.checking_if_nanny_free_on_the_days(days)
 
+    # connecting nannies to customers if nanny is available
+    if available_nannies > 0:
+        nanny_id, nanny_name, nanny_phone_number, dates = nanny_collection.getting_nanny_details(days)
+
+        # updating dates in Nanny Collection with the customer_id
+        nanny_collection.connecting_customer_to_nanny(dates, customer_id, nanny_id)
+
+        customer_collection.connecting_nanny_to_customer(customer_id, nanny_id)
+
+        return ""
+
+    else:
+        dates = nanny_collection.recommending_days(days)
+
+        if isinstance(dates, list):
+            siku = []
+            number_of_days_recommended = len(dates)
+
+            abbrev_to_full = {
+                "Mon": "Monday",
+                "Tue": "Tuesday",
+                "Wed": "Wednesday",
+                "Thur": "Thursday",
+                "Fri": "Friday",
+                "Sat": "Saturday",
+            }
+
+            for date in dates:
+                siku.append(abbrev_to_full.get(date))
+
+            if number_of_days_recommended == 1:
+                return "Unfortunately we don't have househelps available on that day. But we have a househelp " \
+                       "available on {day}.".format(day=siku[0])
+            elif number_of_days_recommended == 2:
+                return "Unfortunately we don't have househelps available on that day. But we have a househelp " \
+                       "available on {day1} and {day2}.".format(day1=siku[0], day2=siku[1])
+            elif number_of_days_recommended == 3:
+                return "Unfortunately we don't have househelps available on that day. But we have a househelp " \
+                       "available on {day1}, {day2} and {day3}.".format(day1=siku[0], day2=siku[1], day3=siku[2])
+            elif number_of_days_recommended == 4:
+                return "Unfortunately we don't have househelps available on that day. But we have a househelp " \
+                       "available on {day1}, {day2}, {day3} and {day4}.".format(day1=siku[0], day2=siku[1],
+                                                                                day3=siku[2], day4=siku[3])
+            elif number_of_days_recommended == 5:
+                return "Unfortunately we don't have househelps available on that day. But we have a househelp " \
+                       "available on {day1}, {day2}, {day3}, {day4} and {day5}.".format(day1=siku[0], day2=siku[1],
+                                                                                        day3=siku[2], day4=siku[3],
+                                                                                        day5=siku[4])
+        else:
+            return dates
+
+
+def inserting_customer_to_db(name, phone_number, address, days):
     # Prompt the user to enter customer information
     input_line = input("Enter customer information: ")
 
@@ -81,8 +138,10 @@ def inserting_customer_to_db(name, phone_number, address, days):
 
     # Insert the new customer into the database
     customer_id = customer_collection.insert_customer(new_customer)
-    return "Customer inserted with ID:, customer_id"
 
+    matching_nanny_and_customer(customer_id, days)
+
+    return "Customer inserted with ID:, customer_id"
 
 
 def inserting_customer_to_database(sentence):
@@ -99,4 +158,3 @@ def inserting_customer_to_database(sentence):
         response = inserting_customer_to_db(name, phone_number, address, days)
 
         return response
-
