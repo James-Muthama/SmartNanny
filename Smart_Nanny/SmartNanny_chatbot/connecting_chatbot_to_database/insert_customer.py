@@ -146,7 +146,7 @@ def inserting_customer_to_db(name, phone_number, address, days):
     return response
 
 
-def inserting_customer_to_database(sentence):
+def inserting_customer_to_database_and_connecting_customer_to_nanny(sentence):
     answer = extract_customer_info(sentence)
 
     if answer == "Please add your name again in the format of your name, your phone-number, your address as house " \
@@ -160,3 +160,8 @@ def inserting_customer_to_database(sentence):
         response = inserting_customer_to_db(name, phone_number, address, days)
 
         return response
+
+
+text = "James Muthama, 0737172200, M5 - Katani Apartments - Katani Rd, [on Monday and Thursday]"
+response = inserting_customer_to_database_and_connecting_customer_to_nanny(text)
+print(response)
