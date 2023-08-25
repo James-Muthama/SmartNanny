@@ -90,7 +90,7 @@
          "context_set": "days_for_nanny, once_a_week_plan, order_2day_a_week, order_3day_per_week"
         },
         {"tag": "insert_new_customer",
-         "patterns": ["{name}, {phone_number}, {address}, {days}"],
+         "patterns": ["{name}, {phone_number}, {address}, on Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"],
          "responses": [""],
          "context_set": "new_customer, once_a_week_plan, order_2day_a_week, order_3day_per_week"
         },
