@@ -165,3 +165,8 @@ def inserting_customer_to_database_and_connecting_customer_to_nanny(sentence):
 text = "James Muthama, 0737172200, M5 - Katani Apartments - Katani Rd, [on Monday and Thursday]"
 response = inserting_customer_to_database_and_connecting_customer_to_nanny(text)
 print(response)
+
+# Test inserting_customer_to_database_and_connecting_customer_to_nanny
+# Test insert of elif tg["insert_new_customer"] == tg: in intents.json
+# Test Whatsapp send message
+
