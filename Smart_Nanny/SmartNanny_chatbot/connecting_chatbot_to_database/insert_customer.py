@@ -73,7 +73,9 @@ def matching_nanny_and_customer(customer_id, days):
 
         customer_collection.connecting_nanny_to_customer(customer_id, nanny_id)
 
-        return ""
+        return f"We have successfully connected you to one of our nannies. Her name is (nanny_name) and if you'd like to" \
+               f" reach her, her number is (nanny_phone_number). She will be getting back to you in the course of the " \
+               f"week and will begin work on the coming week on the specified days. Thank you for working with us."
 
     else:
         dates = nanny_collection.recommending_days(days)
@@ -139,9 +141,9 @@ def inserting_customer_to_db(name, phone_number, address, days):
     # Insert the new customer into the database
     customer_id = customer_collection.insert_customer(new_customer)
 
-    matching_nanny_and_customer(customer_id, days)
+    response = matching_nanny_and_customer(customer_id, days)
 
-    return "Customer inserted with ID:, customer_id"
+    return response
 
 
 def inserting_customer_to_database(sentence):
