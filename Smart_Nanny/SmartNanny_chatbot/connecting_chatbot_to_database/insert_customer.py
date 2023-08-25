@@ -84,12 +84,14 @@ def inserting_customer_to_db(name, phone_number, address, days):
     return "Customer inserted with ID:, customer_id"
 
 
+
 def inserting_customer_to_database(sentence):
     answer = extract_customer_info(sentence)
 
     if answer == "Please add your name again in the format of your name, your phone-number, your address as house " \
                  "number- apartments or estat name - Closest road to your house, days you will need a househelp inside " \
-                 "of [ ] for example James Muthama, 0712345678, S90 - Lata Aparatments - Lata Rd,[on Monday and Thursday]":
+                 "of [ ] for example James Muthama, 0712345678, S90 - Lata Aparatments - Lata Rd,[on Monday and " \
+                 "Thursday]":
         return answer
     else:
         name, phone_number, address, days = extract_customer_info(sentence)
@@ -97,3 +99,4 @@ def inserting_customer_to_database(sentence):
         response = inserting_customer_to_db(name, phone_number, address, days)
 
         return response
+
