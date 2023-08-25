@@ -8,7 +8,7 @@ from preprocessing_json_file import data
 from preprocessing_json_file import words
 from Smart_Nanny.SmartNanny_chatbot.connecting_chatbot_to_database.placing_order import checking_nanny_availability
 from Smart_Nanny.SmartNanny_chatbot.connecting_chatbot_to_database.cancelling_subscription import cancelling_subscription
-from Smart_Nanny.SmartNanny_chatbot.connecting_chatbot_to_database.insert_customer import inserting_customer_to_database
+from Smart_Nanny.SmartNanny_chatbot.connecting_chatbot_to_database.insert_customer import inserting_customer_to_database_and_connecting_customer_to_nanny
 
 stemmer = LancasterStemmer()
 
@@ -36,7 +36,7 @@ def chat(text):
                 response = cancelling_subscription(text)
                 return response
             elif tg["insert_new_customer"] == tg:
-                response = inserting_customer_to_database(text)
+                response = inserting_customer_to_database_and_connecting_customer_to_nanny(text)
                 return response
             elif tg["tag"] == tag:
                 responses = tg["responses"]
