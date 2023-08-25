@@ -56,6 +56,34 @@ def getting_shortname_for_days(siku):
     return days
 
 
+def inserting_customer_to_db(name, phone_number, address, days):
+    # Create an instance of CustomerCollection
+    customer_collection = CustomerCollection("SmartNanny", "Customer")
+
+    # Prompt the user to enter customer information
+    input_line = input("Enter customer information: ")
+
+    # Extract customer information using the extract_customer_info function
+    name, phone_number, address, days = extract_customer_info(input_line)
+
+    # Create a new Customer object with the extracted information
+    new_customer = Customer(
+        name,
+        int(phone_number),
+        address.split("-"),
+        datetime.datetime.now(),
+        len(days),
+        days,
+        "null",
+        "null",
+        int(len(days) * 1000)
+    )
+
+    # Insert the new customer into the database
+    customer_id = customer_collection.insert_customer(new_customer)
+    return "Customer inserted with ID:, customer_id"
+
+
 def inserting_customer_to_database(sentence):
     answer = extract_customer_info(sentence)
 
@@ -66,30 +94,6 @@ def inserting_customer_to_database(sentence):
     else:
         name, phone_number, address, days = extract_customer_info(sentence)
 
-        # Create an instance of CustomerCollection
-        customer_collection = CustomerCollection("SmartNanny", "Customer")
+        response = inserting_customer_to_db(name, phone_number, address, days)
 
-        # Prompt the user to enter customer information
-        input_line = input("Enter customer information: ")
-
-        # Extract customer information using the extract_customer_info function
-        name, phone_number, address, days = extract_customer_info(input_line)
-
-        # Create a new Customer object with the extracted information
-        new_customer = Customer(
-            name,
-            int(phone_number),
-            address.split("-"),
-            datetime.datetime.now(),
-            len(days),
-            days,
-            "null",
-            "null",
-            int(len(days)*1000)
-        )
-
-        # Insert the new customer into the database
-        customer_id = customer_collection.insert_customer(new_customer)
-        print("Customer inserted with ID:", customer_id)
-
-
+        return response
